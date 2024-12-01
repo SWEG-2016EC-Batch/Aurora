@@ -1,5 +1,14 @@
 ## Algorithm
 Write a program that find the result of the expression x^y where the value of X and Y are entered by the user.
+
+## Analysis
+
+Input: two postive integer x and y
+
+Output: x^y
+
+operation: z=x^
+
 ## psedocode of the above code
 * start
 * read input of two positive integer number X and Y
