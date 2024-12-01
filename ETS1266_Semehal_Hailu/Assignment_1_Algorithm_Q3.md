@@ -2,6 +2,14 @@
 # Algorithm of question number 3
 
 Write a program that find the result of the expression 𝑥^𝑦 where the value of X and Y are entered by the user.
+
+## Analysis
+
+Input: two postive integer x and y
+
+Output: x^y
+
+operation: z=x^y
  
 ## Psedocode of the above code
 
