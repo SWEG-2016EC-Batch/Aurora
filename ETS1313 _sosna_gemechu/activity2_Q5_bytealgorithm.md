@@ -6,3 +6,27 @@ take days.
 ##psedocode
 * start
 * 
+
+
+
+
+
+
+
+
+
+
+
+## flow chart of the above psedocode
+```mermaid
+flowchart TD
+    A[Start] --> B[Input File Size]
+    B --> C[Calculate Time in Seconds]
+    C --> D[Calculate Time in Hours]
+    D --> E[Calculate Time in Days]
+    E --> F[Output Time in Seconds, Hours, and Days]
+    F --> G[End]
+
+    C -->|time_in_second = size / 0.00096| C
+    D -->|time_in_hour = time_in_second / 3600| D
+    E -->|time_in_day = time_in_hour / 24| E
