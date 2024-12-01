@@ -1,10 +1,17 @@
 # Algorithm of Question number 2
-
-## Psedocode
-
 Write a program that prompts the capacity in gallons of an automobile fuel tank and the miles per gallons
 the automobiles can be driven. The program outputs the number miles the automobile cam be driven
 without refueling.
+
+## Analysis
+
+Input: Fuel the carin gallon and mile per gallon
+
+Out put: Miles
+
+Operation: Mile= fuel of the car in gallon *mile per gallon
+
+## Psedocode
 
 step_1: Start
 
@@ -22,4 +29,5 @@ step_5: End
   ```mermaid
      flowchart TD
     A(Start)-->B[read input capacity in gallon and fuel in gallon the automobile can drive for 1 mile]-->
-    C[calculate number of mile the automobile can drive as  mile= fuel of the car in gallon *mile per gallon ]
+    C[calculate number of mile the automobile can drive as  mile= fuel of the car in gallon *mile per gallon ]-->
+    D[End]
