@@ -3,7 +3,14 @@ Write a program that prompts the capacity in gallons of an automobile fuel tank 
 the automobiles can be driven. The program outputs the number miles the automobile cam be driven
 without refueling.
 
-#analysis
+## Analysis
+
+Input: Fuel the carin gallon and mile per gallon
+
+Out put: Miles
+
+Operation: Mile= fuel of the car in gallon *mile per gallon
+
 
 * start
 * read input (capacity in gallon and fuel in gallon the automobile can drive for 1 mile)
