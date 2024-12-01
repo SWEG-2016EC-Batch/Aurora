@@ -1,6 +1,6 @@
-/*Design an algorithm and write a to read an employee name, weekly working hours, bonus rate per hour and
+Design an algorithm and write a to read an employee name, weekly working hours, bonus rate per hour and
 base salary and find the employees gross-salary, net salary and bonus payment. (Hint: pension rate – 5%,
-tax: 15%)?*/
+tax: 15%).
 
 #include<iostream>
 using namespace std;
