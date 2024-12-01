@@ -5,7 +5,12 @@ take days.
 
 ##psedocode
 * start
-* 
+* read in put file size
+* Calculate Time in Seconds(time_in_second = size / 0.00096)
+* Calculate Time in hours(time_in_hours = time_in_second / 24)
+*  Calculate Time in days(time_in_days = time_in_hours/ 0.00096)
+*  print (time_in_second, time_in_hours and time_in_days)
+*  end
 
 
 
