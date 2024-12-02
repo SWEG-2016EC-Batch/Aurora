@@ -3,8 +3,8 @@
 Analysis:
 
      Input: size
-     Output: time
-     Operation: time=size/transimsion rate(0.00096)
+     Output: time0
+     Operation: time=size/transimsion rate(1048576)
 
 pseudocode:
 
