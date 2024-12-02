@@ -15,7 +15,7 @@ operation: z=x^
 * i=1, X=1 
 * product*=X
 * if(i<=Y), then goto line 4
-* print product
+* print the product
 * end
 
 
@@ -27,4 +27,4 @@ operation: z=x^
     C --> D[product *= X]
     D --> E{Is i <= Y?}
     E -- Yes --> D
-    E -- No --> F[print product]-->[End]
+    E -- No --> F[print the  product]-->G[End]
