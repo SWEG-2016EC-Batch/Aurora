@@ -14,9 +14,9 @@ Output -under weight,if BMI is less than 18.5
        -Overweight, if BMI is between 25.0-29.9
        -Obese, if BMI is morethan 30
  Algoritm
- step1: start
- step2: read weight
- step3: read height
- step4: operate BMI= weight/(height*height)
- step5: print BMI
- step6: end
+ * step1: start
+ * step2: read weight
+* step3: read height
+* step4: operate BMI= weight/(height*height)
+* step5: print BMI
+* step6: end
