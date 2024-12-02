@@ -11,6 +11,7 @@ operation: z=x^
 
 
 pseudocode :
+
 step__1:Start
 
 step__2:Input:
