@@ -2,6 +2,13 @@
 
 Analysis:
 
+Input: two postive integer x and y
+
+Output: x^y
+
+operation: z=x^
+
+
 
 pseudocode :
 step__1:Start
