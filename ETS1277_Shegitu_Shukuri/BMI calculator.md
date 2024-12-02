@@ -20,3 +20,10 @@ Output -under weight,if BMI is less than 18.5
 * step4: operate BMI= weight/(height*height)
 * step5: print BMI
 * step6: end
+
+
+
+
+```mermaid
+graph TD
+A[start]-->B[read the input]-->
