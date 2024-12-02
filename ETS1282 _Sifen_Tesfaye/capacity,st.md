@@ -4,11 +4,9 @@ without refueling.*/
 
 >>Analysis:
 
-Input: Fuel the carin gallon and mile per gallon
-
-Out put: Miles
-
-Operation: Mile= fuel of the car in gallon *mile per gallon
+     Input: Fuel the carin gallon and mile per gallon
+     Out put: Miles
+     Operation: Mile= fuel of the car in gallon *mile per gallon
 
 
 >>Algorithms in pseudocod:
@@ -16,13 +14,16 @@ Operation: Mile= fuel of the car in gallon *mile per gallon
 step__1: Start
 
 step__2: Input:
+
        Prompt the user to enter the capacity of the fuel tank in gallons.
        Prompt the user to enter the miles per gallon the automobile can be driven.
 
 step__3: Calculate:
+       
        Total miles = capacity of gallon * miles per gallon.
 
 step__4: Output:
+     
       Print the total miles the automobile can be driven without refueling.
 
 step__5: End.
