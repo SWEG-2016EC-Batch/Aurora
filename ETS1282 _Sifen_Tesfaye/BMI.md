@@ -1,6 +1,6 @@
 
 
-
+```mermaid
 graph TD
     A[Start] --> B{Input weight (kg) and height (m)};
     B --> C[Calculate BMI = weight / (height*height)];
