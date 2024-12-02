@@ -1,6 +1,9 @@
 /*Write a program that prompts the capacity in gallons of an automobile fuel tank and the miles per gallons
 the automobiles can be driven. The program outputs the number miles the automobile cam be driven
 without refueling.*/
+
+algorithms in pseudocod:
+
 step__1: Start
 
 step__2: Input:
@@ -14,3 +17,5 @@ step__4: Output:
       Print the total miles the automobile can be driven without refueling.
 
 step__5: End.
+
+algorithms in flow chart: 
