@@ -1,1 +1,13 @@
-code
+step__1: Start
+
+step__2: Input:
+       Prompt the user to enter the capacity of the fuel tank in gallons.
+       Prompt the user to enter the miles per gallon the automobile can be driven.
+
+step__3: Calculate:
+       Total miles = capacity of gallon * miles per gallon.
+
+step__4: Output:
+      Print the total miles the automobile can be driven without refueling.
+
+step__5: End.
