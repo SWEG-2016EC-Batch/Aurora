@@ -16,8 +16,7 @@ int main() {
     cin >> mile_per_gallon;
     
     total_miles = fuel_capacity * mile_per_gallon;
-    
     cout << "The number of miles the automobile can be driven without refueling: " << total_miles << endl;
     
-    return 0;
+return 0;
 }
