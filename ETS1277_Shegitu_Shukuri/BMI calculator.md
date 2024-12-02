@@ -2,9 +2,13 @@
 in normal weight, under weight or over weight. BMI is calculated as (BMI = w/h*h). Make the program to
 work for multiple person before terminated. */
 
-Input -weight
-      -height
-      -BMI = weight/(height*height)
+## input
+-weight
+
+  -height
+      
+  -BMI = weight/(height*height)
+  
 Output -under weight,if BMI is less than 18.5
        -Normal weight, if BMI is between 18.5-24.9
        -Overweight, if BMI is between 25.0-29.9
