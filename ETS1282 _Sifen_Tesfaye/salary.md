@@ -3,6 +3,11 @@ net salary and bonus payment. (Hint: pension rate – 5%, tax: 15%)*/
 
 Analysis:
 
+Input: name,weekly working hour,bonus rate per hours and base salary
+
+Out put: net salary, bouns and gross salary
+
+operation: bonus=bonusrateworking hours,gross salary=bonus+base salary,tax=0.15gross salary, pension=o.5*gross salary and net salary=base salary-tax-pension
 
 Pseudocode:
 
