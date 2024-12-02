@@ -2,7 +2,6 @@
 the automobiles can be driven. The program outputs the number miles the automobile cam be driven
 without refueling.*/
 
-
 #include<iostream>
 using namespace std;
 
@@ -20,3 +19,5 @@ int main() {
     
 return 0;
 }
+
+  
