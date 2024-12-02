@@ -5,14 +5,14 @@ without refueling.*/
 #include<iostream>
 using namespace std;
 int main (){
-    float fuel_of_car,mile_per_gallon,mile;
-    cout<<"Please enter how much gallon your car take per mile: "<<endl;
-    cin>>mile_per_gallon;
-    cout<<" Please enter the amount of fuel you have in gallon : "<<endl;
-    cin>>fuel_of_car;
-    mile= fuel_of_car/mile_per_gallon;
-    cout<<"The number miles the automobile cam be driven without refueling"<<mile<<endl;
+     float fuel_of_car,mile_per_gallon,mile;
+     cout<<"Please enter how much gallon your car take per mile: "<<endl;
+     cin>>mile_per_gallon;
+     cout<<" Please enter the amount of fuel you have in gallon : "<<endl;
+     cin>>fuel_of_car;
+     mile= fuel_of_car/mile_per_gallon;
+     cout<<"The number miles the automobile cam be driven without refueling"<<mile<<endl;
 
-    return  0;
+ return  0;
 }
 
