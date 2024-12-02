@@ -1,28 +1,33 @@
-/*A serial transmission line can transmit 960 characters a second. Write a program that will calculate how long it will take to send a file, given the file size. Test your program on a 400MB (419,430,400 byte) file which may take days.*/
+# Algorithm of Question number 5
 
-Analysis:
+A serial transmission line can transmit 960 characters a second. Write a program that will calculate how long
+it will take to send a file, given the file size. Test your program on a 400MB (419,430,400 byte) file which may
+take days?
 
-     Input: size
-     Output: time0
-     Operation: time=size/transimsion rate(1048576)
+## Analysis
+Input: size
 
-pseudocode:
+Output: time 
 
+Operation: time=size/transimsion rate(0.00096)
 
-step__1:Start
+## Psedocode
 
-step__2:Input:
+step_1: start
 
-     Prompt the user to enter the size of the file in megabytes (MB).
+step_2: input(size)
 
-step__3:Calculate:
+step_3: calculate time as time=size/transimsion rate(0.00096)
 
-    Convert the size from MB to bytes (1 MB = 1,048,576 bytes).
-    Calculate the time to transmit the file in seconds using the transmission rate (960 characters/bytes per second).
-    Convert the time to hours and days.
+step-4: print time
 
-step__4:Output:
+step_5: end
 
-    Print the time in seconds, hours, and days.
+## Flow char 
 
-step__5:End:
+``` mermaid
+  graph TD;
+    A(start) --> B[ Read input of the size]
+    B[ Read input of the size]--> C[Calculate time as time time=size/transimsion rate -0.00096]
+    C[Calculate time as time time=size/transimsion rate _0.00096]-->D[Print time ]
+    D[Print time ]-->E(End)
