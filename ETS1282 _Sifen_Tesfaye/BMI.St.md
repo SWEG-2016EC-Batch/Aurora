@@ -41,5 +41,12 @@ step__6:Prompt to Continue
 
 step__7:End :
 
+Flow chart :
 
-
+'''mermaid
+flowchart TD
+A[START]--> B{IS it sunny?}
+B -- yes--> c[GO outside]
+B --NO--> D[stay inside]
+C --> E[Enjoy the sun]
+D --> E[Read abook]
