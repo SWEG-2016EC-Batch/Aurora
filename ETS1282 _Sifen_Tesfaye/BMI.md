@@ -2,7 +2,9 @@
 in normal weight, under weight or over weight. BMI is calculated as (BMI = w/h*h). Make the program to
 work for multiple person before terminated. */
 
- pseudocod :
+Analisis:
+
+pseudocod :
 
 step__1:Start
 
