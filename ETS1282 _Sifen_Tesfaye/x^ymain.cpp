@@ -1,0 +1,2 @@
+#including<iostream>
+using nam
