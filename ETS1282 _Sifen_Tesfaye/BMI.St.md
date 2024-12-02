@@ -2,8 +2,10 @@
 in normal weight, under weight or over weight. BMI is calculated as (BMI = w/h*h). Make the program to
 work for multiple person before terminated. */
 
-Step-by-SteP pseudocod :
+ pseudocod :
+
 step__1:Start
+
 step__2:Input Weight and Height
 
       Prompt user to enter their weight.
