@@ -32,15 +32,7 @@ int main(){
     }
     while (choice=='0');
     cout<<"we finish thank you";
-    
-    
-
-    
-    
-    
-    
-    
-    return 0;
+      return 0;
 }
 
 
