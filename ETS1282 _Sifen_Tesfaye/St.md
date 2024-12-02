@@ -25,7 +25,7 @@ Print "Obese".
 
 __Prompt to Continue
 
-Ask if the user wants to calculate BMI for another person (1 to continue, 0 to terminate).
+Ask if the user wants to calculate BMI for another person (Y to continue, N to terminate).
 Read user's choice.
 Decision
 IF choice == 0:
