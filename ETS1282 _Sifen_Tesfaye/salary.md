@@ -1,35 +1,48 @@
-/*Design an algorithm and write a to read an employee name, weekly working hours, bonus rate per hour and base salary and find the employees gross-salary,
-net salary and bonus payment. (Hint: pension rate – 5%, tax: 15%)*/
+# Algorithm for Question number 4
 
-Analysis:
+Design an algorithm and write a to read an employee name weekly working hours, bonus rate per hour and
+base salary and find the employees gross-salary, net salary and bonus payment. (Hint: pension rate – 5%,
+tax: 15%).
+
+## Analysis
 
 Input: name,weekly working hour,bonus rate per hours and base salary
 
-Out put: net salary, bouns and gross salary
+Out put: net salary, bouns and  gross salary
 
-operation: bonus=bonusrateworking hours,gross salary=bonus+base salary,tax=0.15gross salary, pension=o.5*gross salary and net salary=base salary-tax-pension
+operation: bonus=bonusrate*working hours,gross salary=bonus+base salary,tax=0.15*gross salary, pension=o.5*gross salary and net salary=base salary-tax-pension
 
-Pseudocode:
 
-step__1:Start
 
-step__2:Input:
+## Psedocode
 
-       Prompt the user to enter the employee's name.
-       Prompt the user to enter the base salary.
-       Prompt the user to enter the bonus rate per hour.
-       Prompt the user to enter the weekly working hours.
+step_1: start
 
-step__3:Calculate:
+step_2: read input name,weekly working hours, bonus rate per hours and base salary
 
-     Bonus = bonus rate * weekly working hours.
-     Gross salary = base salary + bonus.
-     Tax = 15% of gross salary.
-     Pension = 5% of base salary.
-     Net salary = gross salary - tax - pension.
+step_3: calculate bonus=bonusrate*working hours
 
-step__4:Output:
+step_4: calculate gross salary=bonus+base salary
 
-     Print net salary, gross salary, and bonus.
+step_5: calculate tax=0.15*gross salary
 
-step__5:End:
+step_6: calculate pension=o.5*gross salary
+
+step_7: calculate net salary=base salary-tax-pension
+
+step_8: print net salary, gross salary and bunus
+
+step_9: end
+
+## Flow chart
+
+```mermaid
+   flowchart TD
+     A[read input name,weekly working hours, bonus rate per hours and base salary]-->
+     B[calculate bonus=bonusrate*working hours]-->
+C[calculate gross salary=bonus+base salary]-->
+D[ calculate tax=0.15*gross salary]-->
+E[calculate pension=o.5*gross salary]-->
+F[calculate net salary=base salary-tax-pension]-->
+G[print netsalary, gross salary and bunus]-->
+H[end]
