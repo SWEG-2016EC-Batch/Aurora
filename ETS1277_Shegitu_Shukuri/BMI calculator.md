@@ -12,7 +12,7 @@ work for multiple person before terminated. */
   
 ## Output
 
--under weight,if BMI is less than 18.5 
+-under weight, if BMI is less than 18.5 
 
 -Normal weight, if BMI is between 18.5-24.9
 
@@ -33,4 +33,4 @@ work for multiple person before terminated. */
 
 ```mermaid
 graph TD
-A[start]-->B[read weight]-->C[read height]-->D[operate BMI, BMI=weight/(height*height)]-->E[print BMI]-->F[end]
+A[start]-->B[read weight]-->C[read height]-->D[operate BMI, BMI=weight/height*height]-->E[print BMI]-->F[end]
