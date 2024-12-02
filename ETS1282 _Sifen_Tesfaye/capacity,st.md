@@ -9,7 +9,7 @@ without refueling.*/
      Operation: Mile= fuel of the car in gallon *mile per gallon
 
 
->>Algorithms in pseudocod:
+## Algorithms in pseudocod:
 
 step__1: Start
 
