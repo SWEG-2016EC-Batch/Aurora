@@ -43,10 +43,18 @@ step__7:End :
 
 Flow chart :
 
-'''mermaid
-flowchart TD
-A[START]--> B{IS it sunny?}
-B -- yes--> c[GO outside]
-B --NO--> D[stay inside]
-C --> E[Enjoy the sun]
-D --> E[Read abook]
+    A[Start] --> B{Input weight and height};
+    B --> C[Calculate BMI = weight / (height * height)];
+    C --> D[Display BMI];
+    D --> E{Check BMI category};
+    E -- BMI < 18.5 --> F[Display: Underweight];
+    E -- 18.5 <= BMI <= 24.9 --> G[Display: Normal weight];
+    E -- 25 <= BMI <= 29.9 --> H[Display: Overweight];
+    E -- BMI >= 30 --> I[Display: Obese];
+    F --> J{Ask to continue?};
+    G --> J;
+    H --> J;
+    I --> J;
+    J -- Yes --> B;
+    J -- No --> K[End];
+
