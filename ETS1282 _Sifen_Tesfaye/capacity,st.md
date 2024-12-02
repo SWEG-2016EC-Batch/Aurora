@@ -3,6 +3,7 @@ the automobiles can be driven. The program outputs the number miles the automobi
 without refueling.*/
 
 >>Analysis:
+
 Input: Fuel the carin gallon and mile per gallon
 
 Out put: Miles
