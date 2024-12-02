@@ -43,18 +43,23 @@ step__7:End :
 
 Flow chart :
 
-    A[Start] --> B{Input weight and height};
-    B --> C[Calculate BMI = weight / (height * height)];
+    graph TD
+    A[Start] --> B{Input weight (kg) and height (m)};
+    B --> C[Calculate BMI = weight / (height*height)];
     C --> D[Display BMI];
-    D --> E{Check BMI category};
-    E -- BMI < 18.5 --> F[Display: Underweight];
-    E -- 18.5 <= BMI <= 24.9 --> G[Display: Normal weight];
-    E -- 25 <= BMI <= 29.9 --> H[Display: Overweight];
-    E -- BMI >= 30 --> I[Display: Obese];
-    F --> J{Ask to continue?};
-    G --> J;
-    H --> J;
-    I --> J;
-    J -- Yes --> B;
-    J -- No --> K[End];
+    D --> E{Is BMI < 18.5?};
+    E -- Yes --> F[Display: Underweight];
+    E -- No --> G{Is BMI <= 24.9?};
+    G -- Yes --> H[Display: Normal weight];
+    G -- No --> I{Is BMI <= 29.9?};
+    I -- Yes --> J[Display: Overweight];
+    I -- No --> K[Display: Obese];
+    F --> L{Continue?};
+    H --> L;
+    J --> L;
+    K --> L;
+    L -- Yes --> B;
+    L -- No --> M[End];
+
+
 
