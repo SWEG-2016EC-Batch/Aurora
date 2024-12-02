@@ -2,7 +2,15 @@
 the automobiles can be driven. The program outputs the number miles the automobile cam be driven
 without refueling.*/
 
-algorithms in pseudocod:
+>>Analysis:
+Input: Fuel the carin gallon and mile per gallon
+
+Out put: Miles
+
+Operation: Mile= fuel of the car in gallon *mile per gallon
+
+
+>>Algorithms in pseudocod:
 
 step__1: Start
 
@@ -18,4 +26,4 @@ step__4: Output:
 
 step__5: End.
 
-algorithms in flow chart: 
+>>Algorithms in flow chart: 
