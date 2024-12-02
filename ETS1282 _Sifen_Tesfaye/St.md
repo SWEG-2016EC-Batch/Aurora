@@ -1,16 +1,16 @@
 Step-by-Step pseudocod:
 step__1 Start
-step__2 Begin the program.
-step__3 Input Weight and Height
+Begin the program.
+step__2 Input Weight and Height
 
 Prompt user to enter their weight.
 Read the weight.
 Prompt user to enter their height.
 Read the height.
 
-step__4 Calculate BMI
-step__5 Calculate BMI using the formula: BMI = weight / (height * height).
-step__6 Display BMI
+step__3 Calculate BMI
+step__4 Calculate BMI using the formula: BMI = weight / (height * height).
+step__5 Display BMI
 
 Print the calculated BMI.e
 Determine Weight Category
@@ -23,7 +23,7 @@ Print "Overweight".
 ELSE:
 Print "Obese".
 
-step__7 Prompt to Continue
+step__6 Prompt to Continue
 
 Ask if the user wants to calculate BMI for another person (1 to continue, 0 to terminate).
 Read user's choice.
@@ -34,7 +34,7 @@ End the program.
 ELSE:
 Return to step 2.
 
-step__8 End
+step__7 End :
 End the program
 
 
