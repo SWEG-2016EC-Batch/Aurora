@@ -26,4 +26,4 @@ Output -under weight,if BMI is less than 18.5
 
 ```mermaid
 graph TD
-A[start]-->B[read the input]
+A[start]-->B{read the input}
