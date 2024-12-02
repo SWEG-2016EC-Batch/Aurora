@@ -1,4 +1,4 @@
-/* Write a program that prompts the capacity in gallons of an automobile fuel tank and the miles per gallons
+ /* Write a program that prompts the capacity in gallons of an automobile fuel tank and the miles per gallons
 the automobiles can be driven. The program outputs the number miles the automobile can be driven
 without refueling. */
 
@@ -22,4 +22,4 @@ Algorithm
 
 ```mermaid
 graph TD
-A[start]-->B[read miles per gallon]-->C[read fuel of car]-->D[calculate total mile, mile=fuel of car * mile per gallon]-->[print total mile]-->[end]
+A[start]-->B[read miles per gallon]-->C[read fuel of car]-->D[calculate total mile, mile = fuel of car * mile per gallon]-->[print total mile]-->[end]
