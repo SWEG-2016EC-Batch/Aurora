@@ -5,29 +5,29 @@
 
    goto line 2
    
-4. read input as quiz out of 5
+3. read input as quiz out of 5
    *if (quiz<0 or quiz 5)
 
    goto line 3
    
- 5. read input as project out of 20
+ 4. read input as project out of 20
    *if (project<0 orproject>15)
 
    goto line 4
    
-6. read input as assignment out of 10
+5. read input as assignment out of 10
    *if (assignment<0 or assignment>10)
 
    goto line 5
    
-7. read input as final out of 15
+6. read input as final out of 15
    *if (final<0 or final>50)
 
    goto line 6
    
-8. calculate sum as sum=test+quiz+project+asignment+final
+7. calculate sum as sum=test+quiz+project+asignment+final
    
-9. 
+8. 
   * if(sum>=90)
         print A+ 
   * if(sum<90&&sum>=80)
