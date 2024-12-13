@@ -42,3 +42,4 @@ calculate  tax=gross_salary*0.2
   
   calculate  tax=gross_salary*0.3
   * print net salary, gross salary, bonus, tax and extra work hours
+  * end
