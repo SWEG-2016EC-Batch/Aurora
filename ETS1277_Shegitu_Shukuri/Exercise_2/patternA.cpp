@@ -2,9 +2,7 @@
 generate each of the pattern
 on the right side.*/
 
-/*4b) Update your program in (4a)
-to allow user to input the
-dimension of the pattern.*/
+
 
 
 #include <iostream>
