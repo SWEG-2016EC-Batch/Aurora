@@ -95,7 +95,7 @@ do{
 case 7:
             for (int i = 1; i <= row; i++) {
                 for (int j = 1; j <= column; j++) {
-                    if (i == 1  i == row  j == 1  j == column) {
+                    if (i == 1 ||i == row || j == 1  ||j == column) {
                         cout << "* ";
                     } else {
                         cout << "  ";
@@ -117,7 +117,7 @@ case 7:
         case 9:
             for (int i = 1; i <= row; i++) {
                 for (int j = row; j >= i; j--) {
-                    if (i == 1  j == row  i == j) {
+                    if (i == 1 || j == row || i == j) {
                         cout << "* ";
                     } else {
                         cout << "  ";
@@ -157,7 +157,7 @@ case 7:
                     cout << " ";
                 }
                 for (int j = 1; j <= i; j++) {
-                    if (i == 1  j == 1  j == i  i == row) {
+                    if (i == 1||  j == 1 || j == i || i == row) {
                         cout << "* ";
                     } else {
                         cout << "  ";
