@@ -39,7 +39,7 @@ int main() {
     }  
     pension=basic_salary*0.7;
     net_salary=gross_salary-pension-tax;
-    cout<<"Dear employe your gross salary  "<<gross_salary<<endl;
+    cout<<"Dear employe your gross salary is  "<<gross_salary<<endl;
     cout<<"Your extra work hours  "<<extra_work_hours<<" your tax is"<<tax<<endl;
     cout<<"Your net total income is  "<<net_salary<<endl;
     cout<<"Thank you !!"<<endl;
