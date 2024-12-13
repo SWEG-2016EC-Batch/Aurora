@@ -1,84 +1,246 @@
 # Algorithm
 ## psedocode 
 
-Start
+Preview
 
-Display menu options:
+Code
 
-Print numbers in rows and columns
+Blame
 
-Print alphabet in rows
+Case 1: Rectangle of Numbers Pseudocode:
 
-Print decreasing numbers with row adjustments
+step 1:Start
 
-Print inverted numbers with spaces
+step 2:Loop from i = 1 to i = row (step = 1).
 
-Print increasing alphabets row-wise
+2.1: Loop from j = 1 to j = column (step = 1):
 
-Print lowercase alphabets in rows
+2.2: Print the current column index (j) followed by a space.
 
-Input: User selects an option (choice).
+2.3: Print a newline after completing each row.
 
-Process based on choice:
+step 3: End/Terminate
 
-If choice = 1:
+Case 2: Rectangle of Uppercase Alphabets
 
-Input number of rows and columns.
+Pseudocode:
 
-Loop through columns and for each column loop through rows to print numbers.
+step 1:Start
 
-Print newline after each column.
+step 2:Initialize letter to 'A'.
 
-If choice = 2:
+2.1:Loop from i = 1 to i = row (step = 1):
 
-Initialize character to 'A'.
+2.2:Loop from j = 1 to j = column (step = 1):
 
-Loop through 24 iterations, print character, and increment it.
+2.3:Print the current value of letter followed by a space.
 
-Print newline every 6 characters.
+2.4:Increment letter.
 
-If choice = 3:
+2.5:Break if letter > 'Z'.
 
-Input number of rows and columns.
+2.6:Print a newline after completing each row.
 
-Loop through columns and adjust the row count dynamically.
+step 3:End/Terminate
 
-Loop through rows and print numbers.
+Case 3: Incremental Number Pyramid
 
-Print newline after each column.
+Pseudocode:
 
-If choice = 4:
+step 1:Start
 
-Input number of rows and columns.
+step 2:Loop from i = 1 to i = row (step = 1):
 
-Loop through columns and calculate spaces to print.
+2.1:Loop from j = 1 to j = i (step = 1):
 
-Print spaces and loop through rows in reverse to print numbers.
+2.2:Print the current column index (j) followed by a space.
 
-Print newline after each column.
+2.3:Print a newline after completing each row.
 
-If choice = 5:
+step 3:End/Terminate
 
-Input number of rows and columns.
+Case 4: Reversed Incremental Number Pyramid
 
-Initialize character to 'A'.
+Pseudocode:
 
-Loop through columns and for each column, print characters up to the current column number.
+step 1:Start
 
-Reset character to 'A' after each column.
+step 2:Loop from i = 1 to i = row (step = 1):
 
-If choice = 6:
+2.1:Loop from k = row - i to k = 1 (step = -1):
 
-Input number of rows and columns.
+2.2:Print a space.
 
-Initialize character to 'a'.
+2.3:Loop from j = i to j = 1 (step = -1):
 
-Loop through columns and for each column, print characters for the given number of rows.
+2.4:Print the current column index (j) followed by a space.
 
-Reset character to 'a' after each column.
+2.5:Print a newline after completing each row.
+
+step 3:End/Terminate
+
+Case 5: Alphabetic Half Pyramid
+
+Pseudocode:
+
+step 1:Start
+
+step 2:Loop from i = 1 to i = row (step = 1):
+
+2.1:Initialize letter to 'A'.
+
+2.2:Loop from j = 1 to j = i (step = 1):
+
+2.3:Print the current value of letter followed by a space.
+
+2.4:Increment letter.
+
+2.5:Print a newline after completing each row.
+
+step 3:End/Terminate
+
+Case 6: Rectangle of Lowercase Alphabets
+
+Pseudocode:
+
+step 1:Start
+
+step 2:Loop from i = 1 to i = row (step = 1):
+
+2.1:Initialize letter to 'a'.
+
+2.2:Loop from j = 1 to j = column (step = 1):
+
+2.3:Print the current value of letter followed by a space.
+
+2.4:Increment letter.
+
+2.5:Print a newline after completing each row.
+
+step 3:End/Terminate
+
+Case 7: Hollow Star Rectangle
+
+Pseudocode:
+
+step 1:Start
+
+step 2:Loop from i = 1 to i = row (step = 1):
+
+2.1:Loop from j = 1 to j = column (step = 1):
+
+2.2:If i == 1, i == row, j == 1, or j == column:
+
+2.3:Print *.
 
 Else:
 
-Print "Invalid choice. Please run the program again."
+2.4:Print a space.
 
-End
+2.5:Print a newline after completing each row.
+
+step 3:End/Terminate
+
+Case 8: Inverted Star Half Pyramid
+
+Pseudocode:
+
+step 1:Start
+
+step 2:Loop from i = 1 to i = row (step = 1):
+
+2.1:Loop from j = row to j = i (step = -1):
+
+2.2:Print *.
+
+2.3:Print a newline after completing each row.
+
+step 3:End/Terminate
+
+Case 9: Hollow Inverted Star Pyramid
+
+Pseudocode:
+
+step 1:Start
+
+step 2:Loop from i = 1 to i = row (step = 1):
+
+2.1:Loop from j = row to j = i (step = -1):
+
+2.2:If i == 1, j == row, or i == j:
+
+2.3:Print *.
+
+Else:
+
+2.4:Print a space.
+
+2.5:Print a newline after completing each row.
+
+step 3:End/Terminate
+
+Case 10: Star Pyramid
+
+Pseudocode:
+
+step 1:Start
+
+step 2:Loop from i = 1 to i = row (step = 1):
+
+2.1:Loop from k = row - i to k = 1 (step = -1):
+
+2.2:Print a space.
+
+2.3:Loop from j = 1 to j = i (step = 1):
+
+2.4:Print *.
+
+2.5:Print a newline after completing each row.
+
+step 3:End/Terminate
+
+Case 11: Inverted Star Pyramid
+
+Pseudocode:
+
+step 1:Start
+
+step 2:Loop from i = 1 to i = row (step = 1):
+
+2.1:Loop from k = 1 to k = i (step = 1):
+
+2.2:Print a space.
+
+2.3:Loop from j = row to j = i (step = -1):
+
+2.4:Print *.
+
+2.4:Print a newline after completing each row.
+
+step 3:End/Terminate
+
+Case 12: Hollow Star Pyramid
+
+Pseudocode:
+
+step 1:Start
+
+step 2:Loop from i = 1 to i = row (step = 1):
+
+2.1:Loop from k = row - i to k = 1 (step = -1):
+
+2.2:Print a space.
+
+2.3:Loop from j = 1 to j = i (step = 1):
+
+2.4:If i == 1, j == 1, j == i, or i == row:
+
+2.5:Print *.
+
+Else:
+
+2.6:Print a space.
+
+2.7:Print a newline after completing each row.
+
+step 3:End/Terminate
