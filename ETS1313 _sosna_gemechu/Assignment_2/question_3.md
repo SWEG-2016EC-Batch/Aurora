@@ -1,30 +1,27 @@
 # Algorithm
 ## Psedocode
-START PROGRAM  
+1. START PROGRAM  
 
-  DECLARE variables:   
-        num, choice, temp, digit, rev, count, prod, first, last, sum, newNum, freq, strong, perfect  
+2. DECLARE variables:    num, choice, temp, digit, rev, count, prod, first, last, sum, newNum, freq, strong, perfect  
         SET isPalindrome TO true  
- LABEL numb  
-    INPUT num  
+3.  LABEL numb  
+4. INPUT num  
     SET temp = num  
     
     
-  PRINT "1. Reverse of the number"  
-    PRINT "2. Number of digits"  
-    PRINT "3. Product of even digits"  
-    PRINT "4. First and last digit"  
-    PRINT "5. Swap first and last digit"  
-    PRINT "6. Palindrome"  
-    PRINT "7. Frequency of first digit"  
-    PRINT "8. Strong number"  
-    PRINT "9. Perfect number"  
-    PRINT "10. Exit"  
+5. PRINT "1. Reverse of the number"  
+6. PRINT "2. Number of digits"  
+7. PRINT "3. Product of even digits"  
+8. PRINT "4. First and last digit"  
+9. PRINT "5. Swap first and last digit"  
+10. PRINT "6. Palindrome"  
+11. PRINT "7. Frequency of first digit"  
+12. PRINT "8. Strong number"  
+13. PRINT "9. Perfect number"  
+14. PRINT "10. Exit"
+15.  read INPUT choice  
 
-PRINT "Enter your choice: "  
-INPUT choice  
-
-if  choice=1 then 
+* if  choice=1 then 
     Reverse of the number  
          rev = 0  
         if temp > 0 then
@@ -35,7 +32,7 @@ if  choice=1 then
   PRINT  
             > rev  
 
- if  choice=2  then  
+* if  choice=2  then  
  Number of digits  
        count = 0  
         if temp > 0 then
@@ -45,7 +42,7 @@ if  choice=1 then
   PRINT 
            >count  
 
-if  choice=3  then 
+* if  choice=3  then 
 Product of even digits  
         Calculate  prod = 1  
         if temp > 0 then
@@ -57,7 +54,7 @@ Product of even digits
   PRINT
          >prod  
 
- if  choice=4  then
+* if  choice=4  then
        Calculate first = 0  
      Calculatelast = 0  
       if temp > 0 then
@@ -74,86 +71,93 @@ Product of even digits
       PRINT
             >sum  
 
- if  choice=4  then
+* if  choice=5  then
  Swap first and last digit  
-      SET newNum = 0  
-        WHILE temp > 0 DO  
-            SET digit = temp MOD 10  
-            IF digit == first THEN  
-                SET digit = last  
+       newNum = 0  
+       if temp > 0 then
+            Calculate digit = temp % 10  
+            IF digit = first THEN  
+                digit = last  
             ELSE IF digit == last THEN  
-                SET digit = first  
-            END IF  
-            SET newNum = newNum * 10 + digit  
-            SET temp = temp DIV 10  
-        END WHILE  
-        PRINT "Number after swapping: ", newNum  
+                digit = first  
+             Calculate newNum = newNum * 10 + digit  
+            Calculate temp = temp /=10  
+         PRINT 
+                >newNum  
         
-  CASE 6: // Palindrome check  
+* if  choice=6  then 
+ Palindrome check  
       SET tempRev = num  
       SET rev = 0  // Reset rev for palindrome check  
       WHILE tempRev > 0 DO  
-          SET digit = tempRev MOD 10  
-          SET rev = rev * 10 + digit  
-          SET tempRev = tempRev DIV 10  
-      END WHILE  
-      IF num == rev THEN  
-          PRINT "Palindrome: Yes"  
+         Calculate digit = tempRev MOD 10  
+          Calculate rev = rev * 10 + digit  
+         Calculate tempRev = tempRev /= 10  
+     
+   IF num = rev THEN  
+          PRINT 
+          >Yes  
       ELSE  
-          PRINT "Palindrome: No"  
-      END IF  
-      
-  CASE 7: // Frequency of first digit  
-      SET freq = 0  
+          PRINT 
+           >No  
+     
+* if  choice=7  then
+ Frequency of first digit  
+       freq = 0  
       temp = num  // Reset temp for frequency count  
-      WHILE temp > 0 DO  
-          SET digit = temp MOD 10  
+     if temp > 0 then 
+          Calculate digit = temp MOD 10  
           IF digit == first THEN  
               INCREMENT freq  
           END IF  
-            SET temp = temp DIV 10  
+            Calculate temp = temp/= 10  
         END WHILE  
-        PRINT "Frequency of first digit: ", freq  
+        PRINT 
+             >freq  
         
-  CASE 8: // Strong number check  
-      SET strong = 0  
+*  if  choice=8  then
+  Strong number check  
+       strong = 0  
       temp = num  // Reset temp for strong number check  
-      WHILE temp > 0 DO  
-          SET digit = temp MOD 10  
-          SET fact = 1  
+     if temp > 0 then
+          Calculate digit = temp /= 10  
+          Calculate fact = 1  
           FOR i FROM 1 TO digit DO  
-              SET fact = fact * i  
+              Calculate fact = fact * i  
           END FOR  
-          SET strong = strong + fact  
-          SET temp = temp DIV 10  
-      END WHILE  
-      IF strong == num THEN  
-          PRINT "Strong number: Yes"  
+          Calculate strong = strong + fact  
+         Calculate temp /=10  
+       IF strong = num THEN  
+          PRINT 
+               >Yes  
       ELSE  
-          PRINT "Strong number: No"  
-      END IF  
+          PRINT 
+               >No  
+   
       
-  CASE 9: // Perfect number check  
-      SET perfect = 0  
+*  if  choice=9  then
+  Perfect number check  
+      perfect = 0  
       FOR i FROM 1 TO num - 1 DO  
-          IF num MOD i == 0 THEN  
-              SET perfect = perfect + i  
-          END IF  
-      END FOR  
-        IF perfect == num THEN  
-            PRINT "Perfect number: Yes"  
+          IF num % i = 0 THEN  
+              Calculate perfect = perfect + i  
+        IF perfect = num THEN  
+            PRINT 
+                 >Yes  
         ELSE  
-            PRINT "Perfect number: No"  
-        END IF  
+            PRINT 
+                 >No  
+       
         
-   CASE 10: // Exit  
-        PRINT "Exiting..."  
+*   if  choice=10  then
+   Exit  
+        PRINT 
+              >Exiting... 
     
 // Ask if user wants to continue  
-PRINT "If you want to continue press 1, otherwise press 0"  
-INPUT num1  
-IF num1 == 1 THEN  
+16. READ INPUT as num1  
+* IF num1 = 1 THEN  
     GOTO numb // Return to the number input step  
-ELSE  
+* ELSE  
     PRINT NEW LINE  
-END IF  
+17. END IF  
