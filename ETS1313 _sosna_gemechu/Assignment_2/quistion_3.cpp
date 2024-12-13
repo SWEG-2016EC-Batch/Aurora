@@ -10,7 +10,7 @@ int main() {
     cin >> num;
     temp = num;
 
-    // display the menu
+    lab :
     cout << "1. Reverse of the number" << endl;
     cout << "2. Number of digits" << endl;
     cout << "3. Product of even digits" << endl;
@@ -142,7 +142,14 @@ int main() {
             cout << "Exiting..." << endl;
             break;
     }
-    
+    int nuu;
+    cout<<"if you want continue press 1 if you don't press other number or character"<<endl;
+    cin>>nuu;
+    if(nuu=1){
+        goto lab;
+    }else{
+        cout<<endl;
+    }
      
     return 0;
 }
