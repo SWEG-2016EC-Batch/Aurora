@@ -1,4 +1,4 @@
-## psedocode of net salary
+## psedocode of assessment
 1. start
 2. read input as test out of 15
    *if (test<0 ortest>15)
