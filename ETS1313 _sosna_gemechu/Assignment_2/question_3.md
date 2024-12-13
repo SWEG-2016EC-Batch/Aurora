@@ -9,16 +9,26 @@
     SET temp = num  
     
     
-5. PRINT "1. Reverse of the number"  
-6. PRINT "2. Number of digits"  
-7. PRINT "3. Product of even digits"  
-8. PRINT "4. First and last digit"  
-9. PRINT "5. Swap first and last digit"  
-10. PRINT "6. Palindrome"  
-11. PRINT "7. Frequency of first digit"  
-12. PRINT "8. Strong number"  
-13. PRINT "9. Perfect number"  
-14. PRINT "10. Exit"
+5. PRINT
+     >Reverse of the number  
+6. PRINT
+    >Number of digits  
+7. PRINT 
+    >Product of even digits 
+8. PRINT 
+    >First and last digit
+9. PRINT 
+    >Swap first and last digit  
+10. PRINT 
+    > Palindrome
+11. PRINT
+     >Frequency of first digit  
+12. PRINT 
+     >Strong number  
+13. PRINT 
+    >Perfect number  
+14. PRINT 
+    >Exit 
 15.  read INPUT choice  
 
 * if  choice=1 then 
