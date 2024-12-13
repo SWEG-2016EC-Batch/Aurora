@@ -1,7 +1,7 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-
-int main() {
+int main(){
+  
     int choice;
     cout << "Choose a program to run:\n";
     cout << "1. Print numbers in rows and columns\n";
@@ -31,11 +31,10 @@ int main() {
         for (int i = 1; i <= 24; i++) {
             cout << chart;
             chart++;
-            if (i % 6 == 0)
+            if (i % 6 == 0){
                 cout << endl;
-        }
-    } 
-    else if (choice == 3) {
+        }}}
+         else if (choice == 3) {
         int row, colnums;
         cout << "Enter the number of rows: ";
         cin >> row;
@@ -97,11 +96,6 @@ int main() {
             }
             cout << endl;
             ch = 'a';
-        }
-    } 
-    else {
-        cout << "Invalid choice. Please run the program again.\n";
+        }}
+  return 0;
     }
-
-    return 0;
-}
