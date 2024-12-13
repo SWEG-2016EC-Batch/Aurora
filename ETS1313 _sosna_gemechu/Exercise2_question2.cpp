@@ -3,16 +3,41 @@ using namespace std;
 int main(){
     cout<<"           AASSESSMENT LISTS"<<endl;
     float test,quiz, project, assignment, final;
+    go :
     cout<<"please enter your test result out of 15"<<endl;
     cin>>test;  cout<<"\n";
+    if(test<0||test>15||cin.fail()){
+         cout<<"plesase enter valid input"<<endl;
+        goto go;
+    }
+    go1 :
     cout<<"please enter your quiz result out of 5"<<endl;
     cin>>quiz;  cout<<"\n";
+    if(quiz<0||quiz>5||cin.fail()){
+         cout<<"plesase enter valid input"<<endl;
+        goto go1;
+    }
+    go2 :
     cout<<"please enter your project result out of 20"<<endl;
     cin>>project;  cout<<"\n";
+    if(project<0||project>20||cin.fail()){
+         cout<<"plesase enter valid input"<<endl;
+        goto go2;
+    }
+    go3 :
     cout<<"please enter your assignment result out of 10"<<endl;
     cin>>assignment;  cout<<"\n";
+    if(assignment<0||assignment>10||cin.fail()){
+         cout<<"plesase enter valid input"<<endl;
+        goto go3;
+    }
+    go4 :
     cout<<"please enter your final result out of 50"<<endl;
     cin>>final;  cout<<"\n";
+    if(final<0||final>50||cin.fail()){
+         cout<<"plesase enter valid input"<<endl;
+        goto go4;
+    }
     float sum;
     sum=test+quiz+project+assignment+final;
     if(sum>=90){
