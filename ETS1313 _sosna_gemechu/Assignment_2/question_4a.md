@@ -1,99 +1,160 @@
-### **Pseudocode Using Only Statements**
+### Pseudocode Using Only Statements
 
-1. Display "Choose a program to run:"
-2. Display options:
-   - "1. Print alphabet grid"
-   - "2. Print decreasing stars"
-   - "3. Print hollow rectangle"
-   - "4. Print inverted hollow triangle"
-   - "5. Print right-aligned triangle"
-   - "6. Print inverted right-aligned triangle"
-   - "7. Print hollow right-aligned triangle"
-3. Display "Enter your choice (1-7):"
-4. Input `choice`
+```
+START  
+DO  
+    PRINT "1: rectangle of numbers"  
+    PRINT "2: Rectangle of uppercase Alphabets"  
+    PRINT "3: Incremental number pyramid"  
+    PRINT "4: Reversed incremental number pyramid"  
+    PRINT "5: Alphabetic half pyramid"  
+    PRINT "6: Rectangle of lowercase Alphabets"  
+    PRINT "7: Hollow star rectangle"  
+    PRINT "8: Inverted star half pyramid"  
+    PRINT "9: Hollow inverted star pyramid"  
+    PRINT "10: Star pyramid"  
+    PRINT "11: Inverted star pyramid"  
+    PRINT "12: Hollow star pyramid"  
+    PRINT "Enter the choice of pattern"  
+    INPUT choice  
 
----
+    SWITCH choice  
+        CASE 1  
+            FOR i FROM 1 TO 5  
+                FOR j FROM 1 TO 5  
+                    PRINT j  
+                END FOR  
+                PRINT newline  
+            END FOR  
 
-**If `choice == 1`**:
-- Loop through `i` from 'a' to 'e':
-  - Loop through `j` from 'a' to 'e':
-    - Print `j` with a space.
-  - Print a newline.
+        CASE 2  
+            SET letter TO 'A'  
+            FOR i FROM 1 TO 5  
+                FOR j FROM 1 TO 5  
+                    PRINT letter  
+                    IF letter EQUALS 'Z' THEN BREAK  
+                    INCREMENT letter  
+                END FOR  
+                PRINT newline  
+            END FOR  
 
----
+        CASE 3  
+            FOR i FROM 1 TO 5  
+                FOR j FROM 1 TO i  
+                    PRINT j  
+                END FOR  
+                PRINT newline  
+            END FOR  
 
-**Else if `choice == 2`**:
-- Set `n = 6`
-- Loop through `i` from 1 to `n`:
-  - Loop through `j` from 0 to `n - i`:
-    - Print "* ".
-  - Print a newline.
+        CASE 4  
+            FOR i FROM 1 TO 5  
+                FOR k FROM (5 - i) DOWN TO 1  
+                    PRINT " "  
+                END FOR  
+                FOR j FROM i DOWN TO 1  
+                    PRINT j  
+                END FOR  
+                PRINT newline  
+            END FOR  
 
----
+        CASE 5  
+            FOR i FROM 1 TO 5  
+                SET letter TO 'A'  
+                FOR j FROM 1 TO i  
+                    PRINT letter  
+                    INCREMENT letter  
+                END FOR  
+                PRINT newline  
+            END FOR  
 
-**Else if `choice == 3`**:
-- Set `n = 7`
-- Loop through `i` from 1 to `n`:
-  - Loop through `j` from 0 to `n`:
-    - If `i == 1` or `i == n` or `j == 0` or `j == n`:
-      - Print "* ".
-    - Else:
-      - Print two spaces.
-  - Print a newline.
+        CASE 6  
+            FOR i FROM 1 TO 5  
+                SET letter TO 'a'  
+                FOR j FROM 1 TO 5  
+                    PRINT letter  
+                    INCREMENT letter  
+                END FOR  
+                PRINT newline  
+            END FOR  
 
----
+        CASE 7  
+            FOR i FROM 1 TO 5  
+                FOR j FROM 1 TO 5  
+                    IF i EQUALS 1 OR i EQUALS 5 OR j EQUALS 1 OR j EQUALS 5  
+                        PRINT "*"  
+                    ELSE  
+                        PRINT " "  
+                    END IF  
+                END FOR  
+                PRINT newline  
+            END FOR  
 
-**Else if `choice == 4`**:
-- Set `n = 6`
-- Loop through `i` from 1 to `n`:
-  - Loop through `j` from 0 to `n - i`:
-    - If `i == 1` or `j == n - i` or `j == 0`:
-      - Print "* ".
-    - Else:
-      - Print two spaces.
-  - Print a newline.
+        CASE 8  
+            FOR i FROM 1 TO 5  
+                FOR j FROM 5 DOWN TO i  
+                    PRINT "*"  
+                END FOR  
+                PRINT newline  
+            END FOR  
 
----
+        CASE 9  
+            FOR i FROM 1 TO 5  
+                FOR j FROM 5 DOWN TO i  
+                    IF i EQUALS 1 OR j EQUALS 5 OR i EQUALS j  
+                        PRINT "*"  
+                    ELSE  
+                        PRINT " "  
+                    END IF  
+                END FOR  
+                PRINT newline  
+            END FOR  
 
-**Else if `choice == 5`**:
-- Set `n = 6`
-- Loop through `i` from 1 to `n`:
-  - Loop through `k` from `n - i` down to 1:
-    - Print one space.
-  - Loop through `j` from 1 to `i`:
-    - Print "* ".
-  - Print a newline.
+        CASE 10  
+            FOR i FROM 1 TO 5  
+                FOR k FROM (5 - i) DOWN TO 1  
+                    PRINT " "  
+                END FOR  
+                FOR j FROM 1 TO i  
+                    PRINT "*"  
+                END FOR  
+                PRINT newline  
+            END FOR  
 
----
+        CASE 11  
+            FOR i FROM 1 TO 5  
+                FOR k FROM 1 TO i  
+                    PRINT " "  
+                END FOR  
+                FOR j FROM 5 DOWN TO i  
+                    PRINT "*"  
+                END FOR  
+                PRINT newline  
+            END FOR  
 
-**Else if `choice == 6`**:
-- Set `n = 6`
-- Loop through `i` from 1 to `n`:
-  - Loop through `k` from 1 to `i - 1`:
-    - Print one space.
-  - Loop through `j` from `i` to `n`:
-    - Print "* ".
-  - Print a newline.
+        CASE 12  
+            FOR i FROM 1 TO 5  
+                FOR k FROM (5 - i) DOWN TO 1  
+                    PRINT " "  
+                END FOR  
+                FOR j FROM 1 TO i  
+                    IF i EQUALS 1 OR j EQUALS 1 OR j EQUALS i OR i EQUALS 5  
+                        PRINT "*"  
+                    ELSE  
+                        PRINT " "  
+                    END IF  
+                END FOR  
+                PRINT newline  
+            END FOR  
 
----
+        DEFAULT  
+            PRINT "Invalid choice"  
 
-**Else if `choice == 7`**:
-- Set `n = 6`
-- Loop through `i` from 1 to `n`:
-  - Loop through `k` from `n - i` down to 1:
-    - Print one space.
-  - Loop through `j` from 1 to `i`:
-    - If `i == n` or `j == i` or `j == 1`:
-      - Print "* ".
-    - Else:
-      - Print two spaces.
-  - Print a newline.
+    END SWITCH  
 
----
+    PRINT "Press 1 to continue 0 to exit"  
+    INPUT cont  
+WHILE cont EQUALS 1  
 
-**Else**:
-- Display "Invalid choice. Please run the program again."
-
----
-
-**End**
+PRINT "Thank you!!!"  
+END  
+```
