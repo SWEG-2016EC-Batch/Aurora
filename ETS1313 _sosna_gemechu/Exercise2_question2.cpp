@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 int main(){
-    cout<<"           AASSESSMENT LISTS"<<endl;
+    cout<<"           AASSESSMENT LISTS FOR STUDENT OUT OF 100%"<<endl;
+    cout<<"\n";
     float test,quiz, project, assignment, final;
     go :
     cout<<"please enter your test result out of 15"<<endl;
