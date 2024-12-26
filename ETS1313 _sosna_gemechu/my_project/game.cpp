@@ -6,13 +6,14 @@ int main() {
     char X,O,o,x;
     cout<<" WELCOME TO TIC TAK TOE GAME\n";
     int num;
-    cout<<"are you ready to start ??\n";
+   line : cout<<"are you ready to start ??\n";
     cout<<" Yes! click 1\n";
     cin>>num; 
     if(num==1){
 goto line0;
     } else {
         cout<<"invalid input!!\n";
+        goto line;
     }
     line0  :
      cout<<"\n";
