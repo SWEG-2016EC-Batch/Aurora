@@ -1,3 +1,4 @@
+//project tic tac toe
 #include <iostream>
 #include <iomanip>
 #include<window.h>
@@ -5,7 +6,7 @@ using namespace std;
 int main() {
     int game=1;
     char X,O,o,x;
-    cout<<" WELCOME TO TIC TAK TOE GAME\n";
+    cout<<" WELCOME TO TIC TAC TOE GAME\n";
     int num;
    line : cout<<"are you ready to start ??\n";
     cout<<" Yes! click 1\n";
