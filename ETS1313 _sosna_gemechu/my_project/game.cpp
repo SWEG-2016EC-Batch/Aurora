@@ -4,7 +4,6 @@
 #include<window.h>
 using namespace std;
 int main() {
-    int game=1;
     char X,O,o,x;
     cout<<" WELCOME TO TIC TAC TOE GAME\n";
     int num;
@@ -30,7 +29,8 @@ goto line0;
         cout<<"|"<<endl;
     }
     cout<<"-------------"<<endl;
-    while(game){
+
+    for (int g=0;g<5;g++){
     for(int n=1;n<=5;n++){
     int row, column;
     line1 :
