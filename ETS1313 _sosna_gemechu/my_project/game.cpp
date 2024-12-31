@@ -2,7 +2,7 @@
 #include <iomanip>
 using namespace std;
 int main() {
-    bool game=1;
+    int game=1;
     char X,O,o,x;
     cout<<" WELCOME TO TIC TAK TOE GAME\n";
     int num;
