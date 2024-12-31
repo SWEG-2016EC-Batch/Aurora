@@ -51,7 +51,7 @@ choose_player:
 
         // Prompt the current player for their turn
 player_turn:
-        cout << "Player " << currentPlayer << ", enter the row and column you want to pick:\n";
+        cout << "Player " << currentPlayer << ", please enter the row and column you want to pick:\n";
         cin >> row >> column;
 
         // Validate input
@@ -88,7 +88,7 @@ player_turn:
         if ((board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) ||
             (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer)) {
             // Current player wins diagonally
-            cout << "Dear " << currentPlayer << ", you win!\n";
+            cout <<"Congralulation, Dear " << currentPlayer << ", you win!\n";
             goto end_game;
         }
 
