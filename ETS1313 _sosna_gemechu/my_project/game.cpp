@@ -2,7 +2,7 @@
 #include <iomanip>
 using namespace std;
 int main() {
-    bool game=true;
+    bool game=1;
     char X,O,o,x;
     cout<<" WELCOME TO TIC TAK TOE GAME\n";
     int num;
@@ -17,7 +17,9 @@ goto line0;
     }
     line0  :
      cout<<"\n";
-    char board [3][3]={{'*','*','*'},{'*','*','*'},{'*','*','*'}};
+    char board [3][3]={{' ',' ',' '},
+                       {' ',' ',' '},   
+                       {' ',' ',' '}};
     for(int i=0;i<=2;i++){
         cout<<"-------------\n";
         for(int j=0;j<=2;j++){
