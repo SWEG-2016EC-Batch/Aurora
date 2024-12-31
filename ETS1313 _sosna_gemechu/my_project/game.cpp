@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include<window.h>
 using namespace std;
 int main() {
     int game=1;
@@ -40,6 +41,7 @@ if(row>3||column>3){
 }
 row--;
 column--;
+system("cls");
  for(int k=0;k<=2;k++){
         cout<<"-------------\n";
         for(int m=0;m<=2;m++){
@@ -64,6 +66,7 @@ if(row>3||column>3){
 }
 row--;
 column--;
+system("cls");
  for(int a=0;a<=2;a++){
         cout<<"-------------\n";
         for(int s=0;s<=2;s++){
