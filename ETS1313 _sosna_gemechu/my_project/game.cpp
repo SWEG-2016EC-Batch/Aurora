@@ -1,99 +1,103 @@
-//project tic tac toe
 #include <iostream>
 #include <iomanip>
-#include<window.h>
+#include <windows.h>
 using namespace std;
-int main() {
-    char X,O,o,x;
-    cout<<" WELCOME TO TIC TAC TOE GAME\n";
-    int num;
-   line : cout<<"are you ready to start ??\n";
-    cout<<" Yes! click 1\n";
-    cin>>num; 
-    if(num==1){
-goto line0;
-    } else {
-        cout<<"invalid input!!\n";
-        goto line;
-    }
-    line0  :
-     cout<<"\n";
-    char board [3][3]={{' ',' ',' '},
-                       {' ',' ',' '},   
-                       {' ',' ',' '}};
-    for(int i=0;i<=2;i++){
-        cout<<"-------------\n";
-        for(int j=0;j<=2;j++){
-    cout<<"|"<<setw(3)<<board[i][j];
-        }
-        cout<<"|"<<endl;
-    }
-    cout<<"-------------"<<endl;
 
-    for (int g=0;g<5;g++){
-    for(int n=1;n<=5;n++){
-    int row, column;
-    line1 :
-    cout<<"Player X ente row and column you want to pick star\n";
-cin>>row>>column;
-if(row>3||column>3){
-    cout<<"invalid in put please enter valid in put\n";
- goto line1;
-}
-row--;
-column--;
-system("cls");
- for(int k=0;k<=2;k++){
-        cout<<"-------------\n";
-        for(int m=0;m<=2;m++){
-             if(k==row&&m==column){
-                cout<<"|"<<setw(3)<<"X";
-board[k][m]='X';
-             }
-             else{
-    cout<<"|"<<setw(3)<<board[k][m];
-             }
-             
+int main() {
+    int game = 1;  // Tracks the number of games played
+    char currentPlayer; // Tracks the current player ('X' or 'O')
+
+    // Welcome message
+    cout << "WELCOME TO TIC TAC TOE GAME\n";
+    int num;
+
+start_game:
+    // Prompt player to start the game
+    cout << "Are you ready to start??\n";
+    cout << "Yes! Click 1\n";
+    cin >> num;
+
+    if (num != 1) {
+        // Handle invalid input
+        cout << "Invalid input!!\n";
+        goto start_game;
+    }
+
+choose_player:
+    // Ask the player to choose their marker (X or O)
+    cout << "Which player would you like to start as? (X/O): ";
+    cin >> currentPlayer;
+    if (currentPlayer != 'X' && currentPlayer != 'O') {
+        cout << "Invalid choice! Please choose either X or O.\n";
+        goto choose_player;
+    }
+
+    cout << "\n";
+    char board[3][3] = { {' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '} }; // Initialize empty board
+
+    // Display the initial empty board
+    for (int i = 0; i < 3; i++) {
+        cout << "-------------\n";
+        for (int j = 0; j < 3; j++) {
+            cout << "|" << setw(3) << board[i][j];
         }
-        cout<<"|"<<endl;
+        cout << "|" << endl;
     }
-    cout<<"-------------\n";
-    line2 :
-     cout<<"Player O ente row and column you want to pick star\n";
-cin>>row>>column;
-if(row>3||column>3){
-    cout<<"invalid in put please enter valid in put\n";
-    goto line2;
-}
-row--;
-column--;
-system("cls");
- for(int a=0;a<=2;a++){
-        cout<<"-------------\n";
-        for(int s=0;s<=2;s++){
-             if(a==row&&s==column){
-                cout<<"|"<<setw(3)<<"O";
-board[a][s]='O';
-             }
-             else{
-    cout<<"|"<<setw(3)<<board[a][s];
-             }
+    cout << "-------------\n";
+
+    // Main game loop for multiple rounds
+    while (true) {
+        int row, column;
+
+        // Prompt the current player for their turn
+player_turn:
+        cout << "Player " << currentPlayer << ", enter the row and column you want to pick:\n";
+        cin >> row >> column;
+
+        // Validate input
+        if (row > 3 || column > 3 || row < 1 || column < 1 || board[row - 1][column - 1] != ' ') {
+            cout << "Invalid input! Please enter a valid input.\n";
+            goto player_turn;
         }
-        cout<<"|"<<endl;
+
+        // Update the board with the current player's marker
+        row--;
+        column--;
+        board[row][column] = currentPlayer;
+
+        // Clear screen and display updated board
+        system("cls");
+        for (int i = 0; i < 3; i++) {
+            cout << "-------------\n";
+            for (int j = 0; j < 3; j++) {
+                cout << "|" << setw(3) << board[i][j];
+            }
+            cout << "|" << endl;
+        }
+        cout << "-------------\n";
+
+        // Check for win conditions immediately after the current player's move
+        for (int r = 0; r < 3; r++) {
+            if ((board[r][0] == currentPlayer && board[r][1] == currentPlayer && board[r][2] == currentPlayer) ||
+                (board[0][r] == currentPlayer && board[1][r] == currentPlayer && board[2][r] == currentPlayer)) {
+                // Current player wins
+                cout << "Dear " << currentPlayer << ", you win!\n";
+                goto end_game;
+            }
+        }
+        if ((board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) ||
+            (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer)) {
+            // Current player wins diagonally
+            cout << "Dear " << currentPlayer << ", you win!\n";
+            goto end_game;
+        }
+
+        // Switch the current player
+        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     }
-    cout<<"-------------\n";
-    for(int r=0;r<=2;r++){
-            if(board[r][0]=='O'&&board[r][1]=='O'&&board[r][2]=='O'||board[0][r]=='O'&&board[1][r]=='O'&&board[2][r]=='O'){
-    cout<<" dear O youu win\n";
-    } else  if(board[r][0]=='X'&&board[r][1]=='X'&&board[r][2]=='X'||board[0][r]=='X'&&board[1][r]=='X'&&board[2][r]=='X') {
- cout<<" dear X youu win\n";
-        } else if(board[0][0]=='X'&&board[1][2]=='X'&&board[3][3]=='X'){
-            cout<<"dear X you win\n";
-        } else if(board[0][0]=='O'&&board[1][2]=='O'&&board[3][3]=='O'){
-            cout<<"dear O you win\n";
-        } 
-    }
-    }
-    }
+
+end_game:
+    // Display end of game message
+    cout << "The game is over! THANK YOU." << endl;
     return 0;
-    }
+}
