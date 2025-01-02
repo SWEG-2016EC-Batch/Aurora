@@ -28,14 +28,17 @@ choose_marker:
     cout << "Which letter would you like to use as a marker? (X/O): ";
     cin >> currentPlayer; 
     
-    // to let the user use both uppercase and lowercase letter 
+    // check if the  user uses a mark other than x or o  
     if (currentPlayer != 'X' && currentPlayer != 'O' && currentPlayer != 'x' && currentPlayer != 'o') {
         cout << "Invalid choice! Please choose either X or O.\n";
         goto choose_marker;
     }
+  
 
     cout << "\n";
-    char board[3][3] = { {' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '} }; // Initialize empty board
+    char board[3][3] = {{' ', ' ',' '},
+                        {' ', ' ', ' '},
+                        {' ', ' ', ' '} }; // Initialize empty board
 
     // Display the initial empty board
     for (int i = 0; i < 3; i++) {
@@ -57,11 +60,16 @@ player_turn:
         cin >> row >> column;
 
         // Validate input
-        if (row > 3 || column > 3 || row < 1 || column < 1 || board[row - 1][column - 1] != ' ') {
-            cout << "Invalid input! Please enter a valid input.\n";
+        if (row > 3 || column > 3 || row < 1 || column < 1 ||) {
+            cout << "Invalid input! Please enter a row and column 1,2 or 3 as an input.\n";
             goto player_turn;
         }
-
+        //check if the space is taken 
+        if ( board[row - 1][column - 1] != ' ')
+        {
+            cout<<"The place is taken choose and other place please! \n";
+            goto player_turn;
+        }
         // Update the board with the current player's marker
         row--;
         column--;
@@ -95,7 +103,11 @@ player_turn:
         }
 
         // Switch the current player
-        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+        if(currentPlayer == 'X'){
+            currentPlayer == 'O';
+        }else{
+            currentPlayer == 'X';
+        }
     }
 
 end_game:
@@ -103,7 +115,7 @@ end_game:
 char ctrl;
     cout<<"do you want to restart? if yes please press y."<<endl;
     cin>>ctrl;  
-if(ctrl!='y'||ctrl!='Y'){
+if(ctrl=='y'||ctrl=='Y'){
       goto start_game;
 }else{
     cout << "The game is over! THANK YOU." << endl;
