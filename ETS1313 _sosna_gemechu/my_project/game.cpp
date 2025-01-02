@@ -14,7 +14,7 @@ int main() {
 start_game:
     // Prompt player to start the game
     cout << "Are you ready to start??\n";
-    cout << "Yes! Click 1\n";
+    cout << " if Yes click 1\n";
     cin >> num;
 
     if (num != 1) {
@@ -23,15 +23,15 @@ start_game:
         goto start_game;
     }
 
-choose_player:
+choose_marker:
     // Ask the player to choose their marker (X or O)
-    cout << "Which player would you like to start as? (X/O): ";
+    cout << "Which letter would you like to use as a marker? (X/O): ";
     cin >> currentPlayer; 
     
     // to let the user use both uppercase and lowercase letter 
     if (currentPlayer != 'X' && currentPlayer != 'O' && currentPlayer != 'x' && currentPlayer != 'o') {
         cout << "Invalid choice! Please choose either X or O.\n";
-        goto choose_player;
+        goto choose_marker;
     }
 
     cout << "\n";
@@ -67,7 +67,7 @@ player_turn:
         column--;
         board[row][column] = currentPlayer;
 
-        // Clear screen and display updated board
+        //  for Clearing the previous table and display the updated board.
         system("cls");
         for (int i = 0; i < 3; i++) {
             cout << "-------------\n";
@@ -99,7 +99,20 @@ player_turn:
     }
 
 end_game:
-    // Display end of game message
+    
+char ctrl;
+    cout<<"do you want to restart? if yes please press y."<<endl;
+    cin>>ctrl;  
+if(ctrl!='y'||ctrl!='Y'){
+      goto start_game;
+}else{
     cout << "The game is over! THANK YOU." << endl;
+}
+    
+
+
+
+
+    
     return 0;
 }
