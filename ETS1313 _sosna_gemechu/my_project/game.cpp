@@ -113,6 +113,50 @@ a:
                 cout << "Dear " << currentPlayer << ", you win!\n";  
                 goto endgame;  
             }
+            // Computer's turn logic  
+            if (currentPlayer == 'X') {  
+                computer = 'O';  
+            } else {  
+                computer = 'X';  
+            }  
+
+            // Randomized computer move  
+            int randomRows = rand() % 3;  
+            int randomCols = rand() % 3;  
+
+            while (board[randomRows][randomCols] != ' ') {  
+                randomRows = rand() % 3;  
+                randomCols = rand() % 3;  
+            }  
+            board[randomRows][randomCols] = computer;  
+            cout << "\nComputer's move:\n";  
+            Sleep(3000);  
+            
+            // Display updated board after computer's move  
+            for (int i = 0; i < 3; i++) {  
+                cout << "-------------\n";  
+                for (int j = 0; j < 3; j++) {  
+                    cout << "|" << setw(3) << board[i][j];  
+                }  
+                cout << "|\n";  
+            }  
+            cout << "-------------\n";  
+        }  
+    }  
+
+endgame:  
+    // Prompt for game restart  
+    char ctrl;  
+    cout << "Do you want to restart? If yes, please press y." << endl;  
+    cin >> ctrl;  
+    if (ctrl == 'y' || ctrl == 'Y') {  
+        goto startgame;  
+    } else {  
+        cout << "The game is over! THANK YOU." << endl;  
+    }  
+
+    return 0;  
+}
 
 
 
