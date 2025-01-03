@@ -18,7 +18,7 @@ do{
 start_game:
     // Prompt player to start the game
     cout << "Are you ready to start??\n";
-    cout << " if Yes click 1\n";
+    cout << "Yes? please click 1\n";
     cin >> num;
 
     if (num != 1) {
