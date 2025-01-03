@@ -186,7 +186,7 @@ playerturn:
    cin.ignore(); 
    // discard invalid input
     cout << "Invalid input! Please enter valid in put\n";
-    goto playerturn;
+    goto playerTurn;
     }
 
         // Update the board with the current player's marker
