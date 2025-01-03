@@ -175,7 +175,7 @@ a:
         int row, column;
 
         // Prompt the current player for their turn
-playerturn:
+playerTurn:
         cout << "Player " << currentPlayer << ", enter the row and column you want to pick:\n";
         cout<<"Row\n";
         cin >> row;
