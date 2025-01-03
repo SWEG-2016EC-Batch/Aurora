@@ -17,7 +17,7 @@ int main() {
 startgame:  
     // Prompt user to start the game  
     cout << "Are you ready to start??\n";  
-    cout << "Yes! Click 1\n";  
+    cout << "Yes? please Click 1\n";  
     
 b:  
     cin >> num;  
