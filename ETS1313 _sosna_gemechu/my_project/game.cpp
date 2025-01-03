@@ -7,14 +7,14 @@
 using namespace std;
 
 int main() {
-    int game = 1;  // Tracks the number of games played
+    char computer; 
     char currentPlayer; // Tracks the current player ('X' or 'O')
 
     // Welcome message
     cout << "WELCOME TO TIC TAC TOE GAME\n";
-    int num;
-    char ctrl;
-do{
+    int num; 
+    // making sure if the user wants to start the game or not
+
 start_game:
     // Prompt player to start the game
     cout << "Are you ready to start??\n";
@@ -26,20 +26,23 @@ start_game:
         cout << "Invalid input!!\n";
         goto start_game;
     }
-
+int num2;
+    
+cout<<"do you want to play with your friend or with me??\n";
+cout<<"if you want to play with me press 1 if you wannt to play with your friend press 0\n";
+cin>>num2;
+if(num2==1){
 choose_marker:
     // Ask the player to choose their marker (X or O)
-    cout << "Which letter would you like to use as a marker? (X/O): ";
-    cin >> currentPlayer; 
-    
-    // check if the  user uses a mark other than x or o  
-    if (currentPlayer != 'X' && currentPlayer != 'O' && currentPlayer != 'x' && currentPlayer != 'o') {
+    cout << "Which marker would you like to choose for you to play? (X/O): ";
+    cin >> currentPlayer;
+// checking if the user uses a marker other than 'x' and 'o'
+    if (currentPlayer != 'X'||'x' && currentPlayer != 'O'||'o') {
         cout << "Invalid choice! Please choose either X or O.\n";
         goto choose_marker;
     }
-  
 
-    cout << "\n";
+      cout << "\n";
     char board[3][3] = {{' ', ' ',' '},
                         {' ', ' ', ' '},
                         {' ', ' ', ' '} }; // Initialize empty board
