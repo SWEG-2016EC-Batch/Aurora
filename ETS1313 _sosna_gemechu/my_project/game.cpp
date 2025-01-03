@@ -1,8 +1,8 @@
-#include <iostream>  
+#include <iostream> //  
 #include <iomanip>  // provides Input/Output manuplators for formatting outputs
 #include <cstdlib>  // provides general purpose function including random number generation and so on
-#include <ctime> //provides function that manuplate and format date and time information
-#include <windows.h>  
+#include <ctime> // provides function that manuplate and format date and time information
+#include <windows.h> // provides a declarations for all the functions in the windows
 using namespace std;  
 
 int main() {  
