@@ -34,8 +34,9 @@ Develop a Tic Tac Toe game that allows two players to play against each other or
 ## FLOW CHART
 
 ```mermaid
-graphTD
-A[start]-->B[welcome]-->C{input ready? (press 1) --no-->D[invalid input]-->C{input ready? (press 1) --yes--> E[choose friend or computer?]-->F[choose maker(X/O)]-->G[intialize board (3x3)]-->H[while game not over]-->I[display board]-->J[input row an column]-->K{invalid input}--yes-->J-->K{invalid input}--no-->L[update]-->M[check wins?]-->N[announce the winner] -->O[end]
+graph TD
+
+ A[start]-->B[welcome]-->C{input ready? (press 1) --no-->D[invalid input]-->C{input ready? (press 1) --yes--> E[choose friend or computer?]-->F[choose maker(X/O)]--> G[intialize board (3x3)]-->H[while game not over]-->I[display board]-->J[input row an column]-->K{invalid input}--yes-->J-->K{invalid input}--no-->L[update]-->M[check wins?]-->N[announce the winner] -->O[end]
 
 
 
