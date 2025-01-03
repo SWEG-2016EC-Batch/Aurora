@@ -105,13 +105,13 @@ a:
 
             // Check win conditions for player  
             for (int r = 0; r < 3; r++) {  
-                if ((board[r][0] == currentPlayer && board[r][1] == currentPlayer && board[r][2] == currentPlayer)   
+                if ((board[r][0] == currentPlayer && board[r][1] == currentPlayer && board[r][2] == currentPlayer)||   
                     (board[0][r] == currentPlayer && board[1][r] == currentPlayer && board[2][r] == currentPlayer)) {  
                     cout << "Dear " << currentPlayer << ", you win!\n";  
                     goto endgame;  
                 }  
             }  
-            if ((board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer)   
+            if ((board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer)||   
                 (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer)) {  
                 cout << "Dear " << currentPlayer << ", you win!\n";  
                 goto endgame;  
