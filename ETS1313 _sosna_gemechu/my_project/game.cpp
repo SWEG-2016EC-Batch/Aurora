@@ -69,8 +69,11 @@ a:
             int row, column;  
 
         playerturn1:  
-            cout << "Player " << currentPlayer << ", enter the row and column you want to pick:\n";  
-            cin >> row >> column;  
+            cout << "Player " << currentPlayer << ", enter the row and column you want to pick:\n"; 
+            cout<<"Row\n";
+            cin >> row;
+            cout<<"column\n";
+            cin>>column;  
             
             while (cin.fail()) {  
                 cin.clear();  
