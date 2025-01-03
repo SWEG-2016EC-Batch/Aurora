@@ -1,7 +1,7 @@
 #include <iostream>  
 #include <iomanip>  // provides Input/Output manuplators for formatting outputs
-#include <cstdlib>  // 
-#include <ctime>  
+#include <cstdlib>  // provides general purpose function including random number generation and so on
+#include <ctime>//
 #include <windows.h>  
 using namespace std;  
 
