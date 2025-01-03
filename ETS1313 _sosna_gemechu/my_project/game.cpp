@@ -54,7 +54,42 @@ a:
 
         // Initialize the game board  
         char board[3][3] = { {' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '} };
+        // Display the empty board  
+        for (int i = 0; i < 3; i++) {  
+            cout << "-------------\n";  
+            for (int j = 0; j < 3; j++) {  
+                cout << "|" << setw(3) << board[i][j];  
+            }  
+            cout << "|\n";  
+        }  
+        cout << "-------------\n";  
 
+        // Main game loop for player vs. computer  
+        for (int z = 1; z <= 5; z++) {  
+            int row, column;  
+
+        playerturn1:  
+            cout << "Player " << currentPlayer << ", enter the row and column you want to pick:\n";  
+            cin >> row >> column;  
+            
+            while (cin.fail()) {  
+                cin.clear();  
+                cin.ignore();  
+                cout << "Invalid input! Please enter valid input for row and column.\n";  
+                goto playerturn1;  
+            }  
+
+            system("cls");  
+            // Validate player input  
+            if (row < 1 || row > 3 || column < 1 || column > 3 || board[row - 1][column - 1] != ' ') {  
+                cout << "Invalid input! Please enter a valid input.\n";  
+                goto playerturn1;  
+            }  
+
+            // Update the board with player's marker  
+            row--;  
+            column--;  
+            board[row][column] = currentPlayer;
 
 
 
