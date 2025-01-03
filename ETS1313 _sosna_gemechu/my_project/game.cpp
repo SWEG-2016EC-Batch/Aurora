@@ -14,7 +14,7 @@ int main() {
     cout << "WELCOME TO TIC TAC TOE GAME\n";  
     int num;  
 
-startgame:  
+start_game:  
     // Prompt user to start the game  
     cout << "Are you ready to start??\n";  
     cout << "Yes? please Click 1\n";  
