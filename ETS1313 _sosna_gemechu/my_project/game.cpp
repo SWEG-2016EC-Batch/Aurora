@@ -1,4 +1,4 @@
-#include <iostream> //  
+#include <iostream> //  provides basic input and output stream objects
 #include <iomanip>  // provides Input/Output manuplators for formatting outputs
 #include <cstdlib>  // provides general purpose function including random number generation and so on
 #include <ctime> // provides function that manuplate and format date and time information
