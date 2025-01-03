@@ -133,7 +133,7 @@ a:
             }  
             board[randomRows][randomCols] = computer;  
             cout << "\nComputer's move:\n";  
-            Sleep(3000);  
+            Sleep(3);  
             
             // Display updated board after computer's move  
             for (int i = 0; i < 3; i++) {  
@@ -177,7 +177,10 @@ a:
         // Prompt the current player for their turn
 playerturn:
         cout << "Player " << currentPlayer << ", enter the row and column you want to pick:\n";
-        cin >> row >> column;
+        cout<<"Row\n";
+        cin >> row;
+        cout<<"column\n";
+        cin>>column;
  while (cin.fail()||row > 3  ||column > 3 || row < 1 || column < 1 || board[row - 1][column - 1] != ' ') {
      cin.clear(); // clear the error flag 
    cin.ignore(); 
