@@ -47,7 +47,7 @@ a:
         // Allow player to choose their marker (X or O)  
         cout << "Which player would you like to start as? (X/O): ";  
         cin >> currentPlayer;  
-        if (currentPlayer != 'X' && currentPlayer != 'O') {  
+        if (currentPlayer != 'X' && currentPlayer != 'O'&& currentPlayer != 'x' && currentPlayer != 'o') {  
             cout << "Invalid choice! Please choose either X or O.\n";  
             goto chooseplayer;  
         }  
