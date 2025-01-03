@@ -1,6 +1,6 @@
 #include <iostream>  
-#include <iomanip>  
-#include <cstdlib>  
+#include <iomanip>  // provides Input/Output manuplators for formatting outputs
+#include <cstdlib>  // 
 #include <ctime>  
 #include <windows.h>  
 using namespace std;  
