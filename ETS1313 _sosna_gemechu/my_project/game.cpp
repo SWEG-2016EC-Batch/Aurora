@@ -47,10 +47,14 @@ a:
         // Allow player to choose their marker (X or O)  
         cout << "Which player would you like to start as? (X/O): ";  
         cin >> currentPlayer;  
-        if (currentPlayer != 'X' && currentPlayer != 'O'&& currentPlayer != 'x' && currentPlayer != 'o') {  
+
+        currentPlayer=toupper(currentPlayer);    //to change the letter into uppercase incase they enter a lower case letter
+        
+        if (currentPlayer != 'X' && currentPlayer != 'O') {  
             cout << "Invalid choice! Please choose either X or O.\n";  
             goto chooseplayer;  
         }  
+                  currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
 
         // Initialize the game board  
         char board[3][3] = { {' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '} };
@@ -149,8 +153,9 @@ a:
          choose: cout << "Which letter would you like to use as a marker? (X/O): ";
     cin >> currentPlayer; 
     
-    // to let the user use both uppercase and lowercase letter 
-    if (currentPlayer != 'X' && currentPlayer != 'O' && currentPlayer != 'x' && currentPlayer != 'o') {
+     currentPlayer=toupper(currentPlayer);
+
+    if (currentPlayer != 'X' && currentPlayer != 'O' ) {
         cout << "Invalid choice! Please choose either X or O.\n";
         goto choose;
     } else{
