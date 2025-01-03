@@ -90,7 +90,29 @@ a:
             row--;  
             column--;  
             board[row][column] = currentPlayer;
+// Display updated board  
+            for (int i = 0; i < 3; i++) {  
+                cout << "-------------\n";  
+                for (int j = 0; j < 3; j++) {  
+                    cout << "|" << setw(3) << board[i][j];  
+                }  
+                cout << "|\n";  
+            }  
+            cout << "-------------\n";  
 
+            // Check win conditions for player  
+            for (int r = 0; r < 3; r++) {  
+                if ((board[r][0] == currentPlayer && board[r][1] == currentPlayer && board[r][2] == currentPlayer)   
+                    (board[0][r] == currentPlayer && board[1][r] == currentPlayer && board[2][r] == currentPlayer)) {  
+                    cout << "Dear " << currentPlayer << ", you win!\n";  
+                    goto endgame;  
+                }  
+            }  
+            if ((board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer)   
+                (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer)) {  
+                cout << "Dear " << currentPlayer << ", you win!\n";  
+                goto endgame;  
+            }
 
 
 
