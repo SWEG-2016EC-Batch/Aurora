@@ -1,6 +1,9 @@
 #include <iostream>
 #include <iomanip>
 #include <windows.h>
+#include <unistd.h>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main() {
@@ -10,7 +13,8 @@ int main() {
     // Welcome message
     cout << "WELCOME TO TIC TAC TOE GAME\n";
     int num;
-
+    char ctrl;
+do{
 start_game:
     // Prompt player to start the game
     cout << "Are you ready to start??\n";
@@ -112,14 +116,12 @@ player_turn:
 
 end_game:
     
-char ctrl;
+
     cout<<"do you want to restart? if yes please press y."<<endl;
-    cin>>ctrl;  
-if(ctrl=='y'||ctrl=='Y'){
-      goto start_game;
-}else{
+    cin>>ctrl;  }
+while(ctrl=='y'||ctrl=='Y');
+    
     cout << "The game is over! THANK YOU." << endl;
-}
     
 
 
