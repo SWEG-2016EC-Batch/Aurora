@@ -233,7 +233,7 @@ endgame:
     cout << "Do you want to restart? If yes, please press y." << endl;  
     cin >> ctrl;  
     if (ctrl == 'y' || ctrl == 'Y') {  
-        goto startgame;  
+        goto start_game;  
     } else {  
         cout << "The game is over! THANK YOU." << endl;  
     }  
