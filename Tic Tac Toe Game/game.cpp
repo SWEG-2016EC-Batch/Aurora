@@ -48,8 +48,89 @@ a:
         cout << "Invalid input! Please enter 1 to play with your friend or 2 to play with computer or 3 exit.\n";  
         goto a;  
     }  
+      if(num2==1){
+         choose: cout << "Which letter would you like to use as a marker? (X/O): ";
+    cin >> currentPlayer; 
+    
+     currentPlayer=toupper(currentPlayer);
 
-    if (num2 == 2) {  
+    if (currentPlayer != 'X' && currentPlayer != 'O' ) {
+        cout << "Invalid choice! Please choose either X or O.\n";
+        goto choose;
+    } else{
+
+    cout << "\n";
+    char board[3][3] = { {' ', ' ', ' '},
+                        {' ', ' ', ' '},
+                        {' ', ' ', ' '} }; // Initialize empty board
+
+    // Display the initial empty board
+    for (int i = 0; i < 3; i++) {
+        cout << "-------------\n";
+        for (int j = 0; j < 3; j++) {
+            cout << "|" << setw(3) << board[i][j];
+        }
+        cout << "|" << endl;
+    }
+    cout << "-------------\n";
+
+    // Main game loop for multiple rounds
+    while (true) {
+        int row, column;
+
+        // Prompt the current player for their turn
+playerTurn:
+        cout << "Player " << currentPlayer << ", enter the row and column you want to pick:\n";
+        cout<<"Row\n";
+        cin >> row;
+        cout<<"column\n";
+        cin>>column;
+ while (cin.fail()||row > 3  ||column > 3 || row < 1 || column < 1 || board[row - 1][column - 1] != ' ') {
+     cin.clear(); // clear the error flag 
+   cin.ignore(); 
+   // discard invalid input
+    cout << "Invalid input! Please enter valid in put\n";
+    goto playerTurn;
+    }
+
+        // Update the board with the current player's marker
+        row--;
+        column--;
+        board[row][column] = currentPlayer;
+
+        //  for Clearing the previous table and display the updated board.
+        system("cls");
+        for (int i = 0; i < 3; i++) {
+            cout << "-------------\n";
+            for (int j = 0; j < 3; j++) {
+                cout << "|" << setw(3) << board[i][j];
+            }
+            cout << "|" << endl;
+        }
+        cout << "-------------\n";
+
+        // Check for win conditions immediately after the current player's move
+        for (int r = 0; r < 3; r++) {
+            if ((board[r][0] == currentPlayer && board[r][1] == currentPlayer && board[r][2] == currentPlayer)|| 
+                (board[0][r] == currentPlayer && board[1][r] == currentPlayer && board[2][r] == currentPlayer)) {
+                // Current player wins
+                cout << "Dear " << currentPlayer << ", you win!\n";
+                goto endGame;
+            }
+        }
+        if ((board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) ||
+            (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer)) {
+            // Current player wins diagonally
+            cout << "Dear " << currentPlayer << ", you win!\n";
+            goto endGame;
+        }
+
+        // Switch the current player
+        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+    }
+   }}
+
+   else if (num2 == 2) {  
         chooseplayer:  
         // Allow player to choose their marker (X or O)  
         cout << "Which player would you like to start as? (X/O): ";  
@@ -156,87 +237,7 @@ a:
             }  
             cout << "-------------\n";  
         }  
-    }      else  if(num2==1){
-         choose: cout << "Which letter would you like to use as a marker? (X/O): ";
-    cin >> currentPlayer; 
-    
-     currentPlayer=toupper(currentPlayer);
-
-    if (currentPlayer != 'X' && currentPlayer != 'O' ) {
-        cout << "Invalid choice! Please choose either X or O.\n";
-        goto choose;
-    } else{
-
-    cout << "\n";
-    char board[3][3] = { {' ', ' ', ' '},
-                        {' ', ' ', ' '},
-                        {' ', ' ', ' '} }; // Initialize empty board
-
-    // Display the initial empty board
-    for (int i = 0; i < 3; i++) {
-        cout << "-------------\n";
-        for (int j = 0; j < 3; j++) {
-            cout << "|" << setw(3) << board[i][j];
-        }
-        cout << "|" << endl;
-    }
-    cout << "-------------\n";
-
-    // Main game loop for multiple rounds
-    while (true) {
-        int row, column;
-
-        // Prompt the current player for their turn
-playerTurn:
-        cout << "Player " << currentPlayer << ", enter the row and column you want to pick:\n";
-        cout<<"Row\n";
-        cin >> row;
-        cout<<"column\n";
-        cin>>column;
- while (cin.fail()||row > 3  ||column > 3 || row < 1 || column < 1 || board[row - 1][column - 1] != ' ') {
-     cin.clear(); // clear the error flag 
-   cin.ignore(); 
-   // discard invalid input
-    cout << "Invalid input! Please enter valid in put\n";
-    goto playerTurn;
-    }
-
-        // Update the board with the current player's marker
-        row--;
-        column--;
-        board[row][column] = currentPlayer;
-
-        //  for Clearing the previous table and display the updated board.
-        system("cls");
-        for (int i = 0; i < 3; i++) {
-            cout << "-------------\n";
-            for (int j = 0; j < 3; j++) {
-                cout << "|" << setw(3) << board[i][j];
-            }
-            cout << "|" << endl;
-        }
-        cout << "-------------\n";
-
-        // Check for win conditions immediately after the current player's move
-        for (int r = 0; r < 3; r++) {
-            if ((board[r][0] == currentPlayer && board[r][1] == currentPlayer && board[r][2] == currentPlayer)|| 
-                (board[0][r] == currentPlayer && board[1][r] == currentPlayer && board[2][r] == currentPlayer)) {
-                // Current player wins
-                cout << "Dear " << currentPlayer << ", you win!\n";
-                goto endGame;
-            }
-        }
-        if ((board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) ||
-            (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer)) {
-            // Current player wins diagonally
-            cout << "Dear " << currentPlayer << ", you win!\n";
-            goto endGame;
-        }
-
-        // Switch the current player
-        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
-    }
-   }}
+    }    
     
 
 endGame:  
