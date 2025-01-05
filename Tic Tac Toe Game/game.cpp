@@ -11,29 +11,36 @@ int main() {
     char computer;  
 
     // Display welcome message  
-    cout << "WELCOME TO TIC TAC TOE GAME\n";  
-    int num;  
+    cout << "WELCOME TO TIC TAC TOE GAME\n"<<" \n";  
+    char num;  
 
 start_game:  
     // Prompt user to start the game  
-    cout << "Are you ready to start??\n";  
-    cout << "Yes? please Click 1\n";  
+    cout << "Are you ready to start?\n";  
+    cout << "Yes? please Click Y.\n";  
     
 b:  
     cin >> num;  
 
     // Validate the start input  
-    while (cin.fail() || num != 1) {  
+    while (cin.fail() && num != 'y' && num != 'Y') {  
         cin.clear(); // Clear input error  
         cin.ignore(); // Discard invalid input  
-        cout << "Invalid input! Please enter 1 to start.\n";  
+        cout << "Invalid input! Please enter y to start.\n";  
         goto b;  
     }
 int num2;  
     // Ask the user to choose the game mode  
-    cout << "Do you want to play with your friend or with me??\n";  
+  
 a:  
-    cout << "If you want to play with me press 1,\n if you want to play with your friend press 0\n";  
+   cout << "====================" << endl;
+    cout << "        MENU        " << endl;
+    cout << "====================" << endl;
+    cout << "1. Play with your friend" << endl;
+    cout << "2. Play with computer " << endl;
+    cout << "3. Exit" << endl;
+    cout << "Select an option (1-4): "<<endl;
+  
     cin >> num2;  
     while (cin.fail() || (num2 != 1 && num2 != 0)) {  
         cin.clear();  
@@ -42,7 +49,7 @@ a:
         goto a;  
     }  
 
-    if (num2 == 1) {  
+    if (num2 == 2) {  
         chooseplayer:  
         // Allow player to choose their marker (X or O)  
         cout << "Which player would you like to start as? (X/O): ";  
@@ -149,7 +156,7 @@ a:
             }  
             cout << "-------------\n";  
         }  
-    }      else  if(num2==0){
+    }      else  if(num2==1){
          choose: cout << "Which letter would you like to use as a marker? (X/O): ";
     cin >> currentPlayer; 
     
