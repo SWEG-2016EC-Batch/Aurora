@@ -77,7 +77,22 @@ a:
     // Main game loop for multiple rounds
     while (true) {
         int row, column;
+bool isTie = true; // Flag to track if the game is a tie
+for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+        if (board[i][j] == ' ') {
+            isTie = false; // If there's an empty space, it's not a tie
+            break;
+        }
+    }
+    if (!isTie) break; // Exit loop if not a tie
+}
 
+if (isTie) {
+    cout << "It's a tie!\n";
+        // Prompt the current player for their turn
+        goto endGame;
+}
         // Prompt the current player for their turn
 playerTurn:
         cout << "Player " << currentPlayer << ", enter the row and column you want to pick:\n";
