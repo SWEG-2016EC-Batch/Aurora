@@ -42,7 +42,7 @@ a:
     cout << "Select an option (1-3): "<<endl;
   
     cin >> num2;  
-    while (cin.fail() || (num2 != 1 && num2 != 0)) {  
+    while (cin.fail() || (num2 != 1 && num2 != 2 && num2!= 3)) {  
         cin.clear();  
         cin.ignore();  
         cout << "Invalid input! Please enter 1 to play with your friend or 2 to play with computer or 3 exit.\n";  
