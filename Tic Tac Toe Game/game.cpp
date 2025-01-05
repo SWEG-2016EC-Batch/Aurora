@@ -240,7 +240,7 @@ playerTurn:
             }  
             board[randomRows][randomCols] = computer;  
             cout << "\nComputer's move:\n";  
-            Sleep(3);  
+            Sleep(1000);  
             
             // Display updated board after computer's move  
             for (int i = 0; i < 3; i++) {  
