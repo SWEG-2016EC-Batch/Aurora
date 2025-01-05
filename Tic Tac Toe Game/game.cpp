@@ -61,7 +61,7 @@ a:
             cout << "Invalid choice! Please choose either X or O.\n";  
             goto chooseplayer;  
         }  
-                  currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+
 
         // Initialize the game board  
         char board[3][3] = { {' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '} };
@@ -119,13 +119,13 @@ a:
                 if ((board[r][0] == currentPlayer && board[r][1] == currentPlayer && board[r][2] == currentPlayer)||   
                     (board[0][r] == currentPlayer && board[1][r] == currentPlayer && board[2][r] == currentPlayer)) {  
                     cout << "Dear " << currentPlayer << ", you win!\n";  
-                    goto endgame;  
+                    goto endGame;  
                 }  
             }  
             if ((board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer)||   
                 (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer)) {  
                 cout << "Dear " << currentPlayer << ", you win!\n";  
-                goto endgame;  
+                goto endGame;  
             }
             // Computer's turn logic  
             if (currentPlayer == 'X') {  
@@ -223,7 +223,7 @@ playerTurn:
                 (board[0][r] == currentPlayer && board[1][r] == currentPlayer && board[2][r] == currentPlayer)) {
                 // Current player wins
                 cout << "Dear " << currentPlayer << ", you win!\n";
-                goto endgame;
+                goto endGame;
             }
         }
         if ((board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) ||
@@ -239,7 +239,7 @@ playerTurn:
    }}
     
 
-endgame:  
+endGame:  
     // Prompt for game restart  
     char ctrl;  
     cout << "Do you want to restart? If yes, please press y." << endl;  
