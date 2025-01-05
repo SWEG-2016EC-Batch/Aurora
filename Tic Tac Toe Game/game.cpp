@@ -230,7 +230,7 @@ playerTurn:
             (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer)) {
             // Current player wins diagonally
             cout << "Dear " << currentPlayer << ", you win!\n";
-            goto endgame;
+            goto endGame;
         }
 
         // Switch the current player
