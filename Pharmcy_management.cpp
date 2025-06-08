@@ -13,6 +13,7 @@ int search_medicine();
 int daily_report();
 int view_history();
 int customer_service();
+int generate_billing();
 const int passwordof_staff = 232425;
 
 int customer_service() {
@@ -367,6 +368,68 @@ int view_history() {
     return 0;
 }
 
+int generate_billing() {
+    ifstream file("prescription.txt");
+    if (!file.is_open()) {
+        cerr << "Error: Could not open prescription.txt\n";
+        return 1;
+    }
+
+    string customer_name;
+    cout << "Enter the customer's name to generate the bill: ";
+    getline(cin, customer_name);
+
+    double total = 0;
+    string line;
+    bool found = false;
+
+    cout << "\n--- Invoice for " << customer_name << " ---\n";
+    cout << left << setw(20) << "Medicine" << setw(10) << "Price" << setw(10) << "Qty" << setw(15) << "Subtotal\n";
+    cout << string(55, '-') << "\n";
+
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string name, hospital, age, date, medName, price, quantity, expiry, country, generic;
+
+        getline(ss, name, ',');
+        getline(ss, hospital, ',');
+        getline(ss, age, ',');
+        getline(ss, date, ',');
+        getline(ss, medName, ',');
+        getline(ss, price, ',');
+        getline(ss, quantity, ',');
+        getline(ss, expiry, ',');
+        getline(ss, country, ',');
+        getline(ss, generic, ',');
+
+        string name_lower = name, search_lower = customer_name;
+        transform(name_lower.begin(), name_lower.end(), name_lower.begin(), ::tolower);
+        transform(search_lower.begin(), search_lower.end(), search_lower.begin(), ::tolower);
+
+        if (name_lower == search_lower) {
+            found = true;
+            double p = stod(price);
+            int q = stoi(quantity);
+            double subtotal = p * q;
+            total += subtotal;
+
+            cout << left << setw(20) << medName
+                 << setw(10) << fixed << setprecision(2) << p
+                 << setw(10) << q
+                 << setw(15) << fixed << setprecision(2) << subtotal << "\n";
+        }
+    }
+
+    if (!found) {
+        cout << "No billing records found for: " << customer_name << "\n";
+    } else {
+        cout << string(55, '-') << "\n";
+        cout << right << setw(40) << "TOTAL: $" << fixed << setprecision(2) << total << "\n";
+    }
+
+    file.close();
+    return 0;
+
 
 int main() {
     cout << "     AURORA VIRTUAL PHARMACY  \n";
@@ -407,22 +470,25 @@ int main() {
             cout << "2. Search Medicine\n";
             cout << "3. See Daily Report\n";
             cout << "4. View Sales History\n";
-            cout << "5. Exit to Main Menu\n";
+            cout << "5. Generate Billing\n";
+            cout << "6. Exit to Main Menu\n";
             cout << "Enter your choice: ";
             cin >> choice;
             cin.ignore();
 
-            if (choice == 1) {
-                update_stock();
-            } else if (choice == 2) {
-                search_medicine();
-            } else if (choice == 3) {
-                daily_report();
-            } else if (choice == 4) {
-                view_history();
-            } else if (choice == 5) {
-                cout << "Returning to Main Menu.\n";
-            } else {
+           if (choice == 1) {
+              update_stock();
+                 } else if (choice == 2) {
+                     search_medicine();
+                } else if (choice == 3) {
+                     daily_report();
+                } else if (choice == 4) {
+                    view_history();
+                } else if (choice == 5) {
+                   generate_billing();
+                } else if (choice == 6) {
+                             break;
+                } else {
                 cout << "Invalid input!\n";
             }
         }
