@@ -14,6 +14,7 @@ int daily_report();
 int view_history();
 int customer_service();
 int generate_billing();
+
 const int passwordof_staff = 232425;
 
 int customer_service() {
