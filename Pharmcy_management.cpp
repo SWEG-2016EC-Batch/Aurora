@@ -337,3 +337,85 @@ int daily_report() {
     file.close();
     return 0;
 }
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int view_history() {
+    ifstream file("prescription.txt");
+    string line1, line2;
+    string input_name;
+
+    if (!file.is_open()) {
+        cerr << "Error: Could not open prescription.txt\n";
+        return 1;
+    }
+
+    cout << "Enter the patient's name to view history: ";
+    getline(cin, input_name);
+
+    // Convert input to lowercase for case-insensitive matching
+    transform(input_name.begin(), input_name.end(), input_name.begin(), ::tolower);
+
+    cout << "\n--- Purchase History for \"" << input_name << "\" ---\n";
+    bool found = false;
+
+    while (getline(file, line1) && getline(file, line2)) {
+        stringstream ss1(line1);
+        stringstream ss2(line2);
+
+        string patient[3], med[6];
+        string temp;
+        int i = 0;
+
+        // Parse line1: Patient data
+        while (getline(ss1, temp, ',') && i < 3) {
+            patient[i++] = temp;
+        }
+
+        // If name is empty, skip
+        if (patient[0].empty()) continue;
+
+        // Normalize for case-insensitive comparison
+        string full_name = patient[0] + " " + patient[1];
+        transform(full_name.begin(), full_name.end(), full_name.begin(), ::tolower);
+
+        // Match input name
+        if (full_name.find(input_name) != string::npos) {
+            found = true;
+
+            // Parse line2: Medicine data
+            i = 0;
+            while (getline(ss2, temp, ',') && i < 6) {
+                med[i++] = temp;
+            }
+
+            // Extract date from patient[2]
+            string date_info = patient[2];
+            size_t pos = date_info.find_first_not_of("0123456789");
+            string full_date = (pos != string::npos) ? date_info.substr(pos) : "Unknown";
+
+            // Display record
+            cout << "Date: " << full_date << endl;
+            cout << "Medicine: " << med[0] << endl;
+            cout << "Price: $" << med[1] << endl;
+            cout << "Quantity: " << med[2] << endl;
+            cout << "Expiry: " << med[3] << endl;
+            cout << "Country: " << med[4] << endl;
+            cout << "Generic Name: " << med[5] << endl;
+            cout << "-----------------------------\n";
+        }
+    }
+
+    if (!found) {
+        cout << "No purchase records found for that name.\n";
+    }
+
+    file.close();
+    return 0;
+}
+
