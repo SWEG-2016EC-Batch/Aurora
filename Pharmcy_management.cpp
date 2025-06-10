@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <ctime>
 #include <string>
-#include <algorithm>  
+#include <algorithm>
 using namespace std;
 
 // Function declarations
@@ -62,8 +62,8 @@ int customer_service() {
          << "| " << setw(25) << "Generic Name" << "|\n";
     cout << string(115, '-') << "\n";
 
-    time_t now = time(0);             
-    char* dt = ctime(&now);           
+    time_t now = time(0);
+    char* dt = ctime(&now);
 
     while (getline(file, line)) {
         stringstream ss(line);
@@ -85,8 +85,8 @@ int customer_service() {
                  << "| " << setw(25) << generic << "|\n";
 
             found = true;
-            fout << name << "," << hospital_name << "," << age << "," << dt << "," 
-                 << medName << "," << price << "," << quantity << "," << expiry 
+            fout << name << "," << hospital_name << "," << age << "," << dt << ","
+                 << medName << "," << price << "," << quantity << "," << expiry
                  << "," << country << "," << generic << "\n";
         }
     }
@@ -273,70 +273,167 @@ int daily_report() {
     }
 
     string input_date;
-    cout << "Enter the date (e.g., Sun Jun 08 02:02:22 2025): ";
+    cout << "Enter the date (e.g., Sun Jun 08 02:48:13 2025): ";
     getline(cin, input_date);
 
-    cout << "\n--- Daily Report for " << input_date << " ---\n";
-    bool found = false;
     string line;
+    bool found = false;
+
+    cout << "\n" << string(140, '=') << "\n";
+    cout << "| " << left << setw(15) << "Customer Name"
+         << "| " << setw(15) << "Hospital Name"
+         << "| " << setw(5) << "Age"
+         << "| " << setw(30) << "Purchase Date"
+         << "| " << setw(18) << "Medicine Name"
+         << "| " << setw(8) << "Price"
+         << "| " << setw(8) << "Quantity"
+         << "| " << setw(15) << "Expiry"
+         << "| " << setw(15) << "Country"
+         << "| " << setw(25) << "Generic Name" << "|\n";
+    cout << string(140, '-') << "\n";
 
     while (getline(file, line)) {
         stringstream ss(line);
-        string patient_name, hospital, age, date, medName, price, quantity, expiry, country, generic;
+        string customer_name, hospital_name, age, purchase_date, medName, price, quantity, expiry, country, generic;
 
-        getline(ss, patient_name, ',');
-        getline(ss, hospital, ',');
+        getline(ss, customer_name, ',');
+        getline(ss, hospital_name, ',');
         getline(ss, age, ',');
-        getline(ss, date, ',');
+        getline(ss, purchase_date, ',');
+        getline(ss, medName, ',');
+        getline(ss, price, ',');
+        getline(ss, quantity, ',');
+        getline(ss, expiry, ',');
+        getline(ss, country, ',');
+        getline(ss, generic, ',');
 
-        if (date.find(input_date) != string::npos) {
+        if (purchase_date == input_date) {
+            cout << "| " << left << setw(15) << customer_name
+                 << "| " << setw(15) << hospital_name
+                 << "| " << setw(5) << age
+                 << "| " << setw(30) << purchase_date
+                 << "| " << setw(18) << medName
+                 << "| " << setw(8) << price
+                 << "| " << setw(8) << quantity
+                 << "| " << setw(15) << expiry
+                 << "| " << setw(15) << country
+                 << "| " << setw(25) << generic << "|\n";
             found = true;
-            getline(ss, medName, ',');
-            getline(ss, price, ',');
-            getline(ss, quantity, ',');
-            getline(ss, expiry, ',');
-            getline(ss, country, ',');
-            getline(ss, generic, ',');
-
-            cout << "Patient: " << patient_name << " | Hospital: " << hospital << " | Age: " << age << "\n";
-            cout << "Medicine: " << medName << " | Price: $" << price
-                 << " | Quantity: " << quantity << " | Expiry: " << expiry
-                 << " | Country: " << country << " | Generic: " << generic << "\n";
-            cout << "-----------------------------\n";
         }
     }
 
+    cout << string(140, '=') << "\n";
+
     if (!found) {
-        cout << "No records found for this date.\n";
+        cout << "No purchases found on the date: " << input_date << "\n";
     }
 
     file.close();
+    return 0;
+}
+int generate_billing() {
+    ifstream fin("prescription.txt");
+    if (!fin.is_open()) {
+        cerr << "❌ Error: Could not open prescription.txt\n";
+        return 1;
+    }
+
+    string target_name;
+    cout << "Enter the customer's name to generate bill: ";
+    getline(cin, target_name);
+
+    string line1, line2;
+    bool found = false;
+    double total = 0.0;
+
+    cout << "\n --- BILL RECEIPT ---\n";
+    cout << string(60, '=') << "\n";
+    cout << left << setw(20) << "Medicine"
+         << setw(10) << "Price"
+         << setw(10) << "Qty"
+         << setw(15) << "Total" << "\n";
+    cout << string(60, '-') << "\n";
+
+    while (getline(fin, line1) && getline(fin, line2)) {
+        stringstream ss1(line1), ss2(line2);
+        string name, hospital, age, date;
+        string blank, medName, priceStr, qtyStr, expiry, country, generic;
+
+        getline(ss1, name, ',');
+        getline(ss1, hospital, ',');
+        getline(ss1, age, ',');
+        getline(ss1, date); // rest of line1 is the date string
+
+        getline(ss2, blank, ','); // empty field
+        getline(ss2, medName, ',');
+        getline(ss2, priceStr, ',');
+        getline(ss2, qtyStr, ',');
+        getline(ss2, expiry, ',');
+        getline(ss2, country, ',');
+        getline(ss2, generic);
+
+        if (name == target_name) {
+            double price = stod(priceStr);
+            int qty = stoi(qtyStr);
+            double lineTotal = price * qty;
+            total += lineTotal;
+
+            cout << left << setw(20) << medName
+                 << setw(10) << fixed << setprecision(2) << price
+                 << setw(10) << qty
+                 << setw(15) << lineTotal << "\n";
+            found = true;
+        }
+    }
+
+    if (found) {
+        cout << string(60, '-') << "\n";
+        cout << right << setw(40) << "Grand Total: " << setw(10) << fixed << setprecision(2) << total << "\n";
+        cout << string(60, '=') << "\n";
+        cout << "🧾 Thank you for choosing 5S Virtual Pharmacy!\n";
+    } else {
+        cout << "⚠️ No records found for customer: " << target_name << "\n";
+    }
+
+    fin.close();
     return 0;
 }
 
 int view_history() {
+    string search_name;
+    cout << "Enter your name: ";
+    getline(cin, search_name);
+
     ifstream file("prescription.txt");
-    if (!file.is_open()) {
-        cerr << "Error: Could not open prescription.txt\n";
+    if (!file) {
+        cout << "File not found!\n";
         return 1;
     }
 
-    string search_name;
-    cout << "Enter customer name to view history: ";
-    getline(cin, search_name);
-
-    cout << "\n--- Purchase History for \"" << search_name << "\" ---\n";
-    string line;
     bool found = false;
+    string line;
+
+    cout << "\n" << string(140, '=') << "\n";
+    cout << "| " << left << setw(15) << "Customer Name"
+         << "| " << setw(15) << "Hospital Name"
+         << "| " << setw(5) << "Age"
+         << "| " << setw(30) << "Purchase Date"
+         << "| " << setw(18) << "Medicine Name"
+         << "| " << setw(8) << "Price"
+         << "| " << setw(8) << "Quantity"
+         << "| " << setw(15) << "Expiry"
+         << "| " << setw(15) << "Country"
+         << "| " << setw(25) << "Generic Name" << "|\n";
+    cout << string(140, '-') << "\n";
 
     while (getline(file, line)) {
         stringstream ss(line);
-        string name, hospital, age, date, medName, price, quantity, expiry, country, generic;
+        string customer_name, hospital_name, age, purchase_date, medName, price, quantity, expiry, country, generic;
 
-        getline(ss, name, ',');
-        getline(ss, hospital, ',');
+        getline(ss, customer_name, ',');
+        getline(ss, hospital_name, ',');
         getline(ss, age, ',');
-        getline(ss, date, ',');
+        getline(ss, purchase_date, ',');
         getline(ss, medName, ',');
         getline(ss, price, ',');
         getline(ss, quantity, ',');
@@ -344,161 +441,89 @@ int view_history() {
         getline(ss, country, ',');
         getline(ss, generic, ',');
 
-        // Case-insensitive match (optional: remove if not needed)
-        string name_lower = name, search_lower = search_name;
-        transform(name_lower.begin(), name_lower.end(), name_lower.begin(), ::tolower);
-        transform(search_lower.begin(), search_lower.end(), search_lower.begin(), ::tolower);
+        // case-insensitive search
+        string lower_customer_name = customer_name;
+        string lower_search_name = search_name;
+        transform(lower_customer_name.begin(), lower_customer_name.end(), lower_customer_name.begin(), ::tolower);
+        transform(lower_search_name.begin(), lower_search_name.end(), lower_search_name.begin(), ::tolower);
 
-        if (name_lower == search_lower) {
+        if (lower_customer_name == lower_search_name) {
+            cout << "| " << left << setw(15) << customer_name
+                 << "| " << setw(15) << hospital_name
+                 << "| " << setw(5) << age
+                 << "| " << setw(30) << purchase_date
+                 << "| " << setw(18) << medName
+                 << "| " << setw(8) << price
+                 << "| " << setw(8) << quantity
+                 << "| " << setw(15) << expiry
+                 << "| " << setw(15) << country
+                 << "| " << setw(25) << generic << "|\n";
             found = true;
-            cout << "Date: " << date;
-            cout << " | Medicine: " << medName
-                 << " | Price: $" << price
-                 << " | Quantity: " << quantity
-                 << " | Expiry: " << expiry
-                 << " | Country: " << country
-                 << " | Generic: " << generic << "\n";
         }
     }
 
+    cout << string(140, '=') << "\n";
+
     if (!found) {
-        cout << "No purchase history found for: " << search_name << "\n";
+        cout << "No history found for customer: " << search_name << "\n";
     }
 
     file.close();
     return 0;
 }
 
-int generate_billing() {
-    ifstream file("prescription.txt");
-    if (!file.is_open()) {
-        cerr << "Error: Could not open prescription.txt\n";
-        return 1;
-    }
 
-    string customer_name;
-    cout << "Enter the customer's name to generate the bill: ";
-    getline(cin, customer_name);
-
-    double total = 0;
-    string line;
-    bool found = false;
-
-    cout << "\n--- Invoice for " << customer_name << " ---\n";
-    cout << left << setw(20) << "Medicine" << setw(10) << "Price" << setw(10) << "Qty" << setw(15) << "Subtotal\n";
-    cout << string(55, '-') << "\n";
-
-    while (getline(file, line)) {
-        stringstream ss(line);
-        string name, hospital, age, date, medName, price, quantity, expiry, country, generic;
-
-        getline(ss, name, ',');
-        getline(ss, hospital, ',');
-        getline(ss, age, ',');
-        getline(ss, date, ',');
-        getline(ss, medName, ',');
-        getline(ss, price, ',');
-        getline(ss, quantity, ',');
-        getline(ss, expiry, ',');
-        getline(ss, country, ',');
-        getline(ss, generic, ',');
-
-        string name_lower = name, search_lower = customer_name;
-        transform(name_lower.begin(), name_lower.end(), name_lower.begin(), ::tolower);
-        transform(search_lower.begin(), search_lower.end(), search_lower.begin(), ::tolower);
-
-        if (name_lower == search_lower) {
-            found = true;
-            double p = stod(price);
-            int q = stoi(quantity);
-            double subtotal = p * q;
-            total += subtotal;
-
-            cout << left << setw(20) << medName
-                 << setw(10) << fixed << setprecision(2) << p
-                 << setw(10) << q
-                 << setw(15) << fixed << setprecision(2) << subtotal << "\n";
-        }
-    }
-
-    if (!found) {
-        cout << "No billing records found for: " << customer_name << "\n";
-    } else {
-        cout << string(55, '-') << "\n";
-        cout << right << setw(40) << "TOTAL: $" << fixed << setprecision(2) << total << "\n";
-    }
-
-    file.close();
-    return 0;
 
 
 int main() {
-    cout << "     AURORA VIRTUAL PHARMACY  \n";
-    cout << "             WELCOME          \n";
+    int choice;
+    while (true) {
+        cout << "\n==== 5S Virtual Pharmacy System ====\n";
+        cout << "1. Customer Service\n";
+        cout << "2. Update Stock (Staff Only)\n";
+        cout << "3. Search Medicine\n";
+        cout << "4. Daily Report\n";
+        cout << "5. View Purchase History\n";
+        cout << "6. Generate Billing\n";
+        cout << "7. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+        cin.ignore(); // consume newline
 
-    string role;
-    cout << "Enter your role (staff/customer): ";
-    getline(cin, role);
-
-    if (role == "staff") {
-        int attempts = 3;  // Allow 3 attempts for password
-        int entered_password;
-        bool access_granted = false;
-
-        while (attempts > 0) {
-            cout << "Enter staff password: ";
-            cin >> entered_password;
-            cin.ignore();
-
-            if (entered_password == passwordof_staff) {
-                access_granted = true;
+        switch (choice) {
+            case 1:
+                customer_service();
                 break;
-            } else {
-                attempts--;
-                cout << "Incorrect password. ";
-                if (attempts > 0) {
-                    cout << "Try again. (" << attempts << " attempts left)\n";
+            case 2: {
+                int pw;
+                cout << "Enter staff password: ";
+                cin >> pw;
+                cin.ignore();
+                if (pw == passwordof_staff) {
+                    update_stock();
                 } else {
-                    cout << "No attempts left. Access denied.\n";
+                    cout << "Invalid password!\n";
                 }
+                break;
             }
+            case 3:
+                search_medicine();
+                break;
+            case 4:
+                daily_report();
+                break;
+            case 5:
+                view_history();
+                break;
+            case 6:
+                generate_billing();
+                break;
+            case 7:
+                cout << "Goodbye!\n";
+                return 0;
+            default:
+                cout << "Invalid choice! Please enter a number 1-7.\n";
         }
-
-        if (access_granted) {
-            int choice;
-            cout << "\nStaff Menu:\n";
-            cout << "1. Update Stock\n";
-            cout << "2. Search Medicine\n";
-            cout << "3. See Daily Report\n";
-            cout << "4. View Sales History\n";
-            cout << "5. Generate Billing\n";
-            cout << "6. Exit to Main Menu\n";
-            cout << "Enter your choice: ";
-            cin >> choice;
-            cin.ignore();
-
-           if (choice == 1) {
-              update_stock();
-                 } else if (choice == 2) {
-                     search_medicine();
-                } else if (choice == 3) {
-                     daily_report();
-                } else if (choice == 4) {
-                    view_history();
-                } else if (choice == 5) {
-                   generate_billing();
-                } else if (choice == 6) {
-                             break;
-                } else {
-                cout << "Invalid input!\n";
-            }
-        }
-    } else if (role == "customer") {
-        customer_service();
-    } else {
-        cout << "Invalid role. Please enter either 'staff' or 'customer'.\n";
     }
-
     return 0;
 }
-
